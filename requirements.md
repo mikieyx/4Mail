@@ -1,17 +1,17 @@
 ## Functional Requirements
 
-Create an account (register) [Cedric]
-Log in/Log out [Alex]
-Attach image/file to email [Alex]
-Password reset [Alex]
-Connect to external News Articles API [Michael]
-Send an email [Cedric]
-Delete emails [Cedric]
-Send a chat to someone [Van]
-Add a task to the do list [Michael]
-Cross something off the todo list [Michael]
-Star important emails [Van]
-Search Emails/Filter emails [Van]
+1. Create an account (register) [Cedric]
+2. Log in/Log out [Alex]
+3. Attach image/file to email [Alex]
+4. Password reset [Alex]
+5. Connect to external News Articles API [Michael]
+6. Send an email [Cedric]
+7. Delete emails [Cedric]
+8. Send a chat to someone [Van]
+9. Add a task to the do list [Michael]
+10. Cross something off the todo list [Michael]
+11. Star important emails [Van]
+12. Search Emails/Filter emails [Van]
 
 ## Non Functional Requirements
 
