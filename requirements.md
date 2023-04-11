@@ -78,13 +78,13 @@ The user is able to send a message to the recipient(s) / The user is not able to
 
 
 5. Log In/ Log Out
-**Summary:**  The users go to the website to use their registered accounts to log in their account to do operations inside their accounts like sending, receiving emails, and crossing or inserting to-do works. After that, they can log out of their account on 4Mail.
+- **Summary:**  The users go to the website to use their registered accounts to log in their account to do operations inside their accounts like sending, receiving emails, and crossing or inserting to-do works. After that, they can log out of their account on 4Mail.
 
-**(Primary) Actors: **  The users (and 4Mail)
+- **(Primary) Actors: **  The users (and 4Mail)
 
-**Pre-condition: **  The users have the Internet access, and they already register successfully the accounts for 4Mail
+- **Pre-condition: **  The users have the Internet access, and they already register successfully the accounts for 4Mail
 
-**Trigger:**  The user click on the “Log In” button in order to log in their accounts and then click “Log Out” button to exit their accounts in the webpage
+- **Trigger:**  The user click on the “Log In” button in order to log in their accounts and then click “Log Out” button to exit their accounts in the webpage
 
 **Primary Sequence:** 
 
