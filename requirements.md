@@ -1,7 +1,3 @@
-HP: External API OR Beautify it 
-Create a website that will be an email client that will integrate chat and a todo component. 
-12 functional requirements that can be turned into use case descriptions:
-
 ## FUNCTIONAL REQUIREMENTS
 1. Create an account (register) Cedric 
 2. Log in/Log out Alex
