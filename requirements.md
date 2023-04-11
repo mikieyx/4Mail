@@ -20,7 +20,7 @@
 
 ## Use Cases
 
-1. #Add a task to the todo list
+#1. Add a task to the todo list
 
 - **Summary:**
   The user creates adds a task to his/her todo list
@@ -49,7 +49,7 @@
 
 
 
-2. #Connect to external News Articles API
+#2. Connect to external News Articles API
 
 - **Summary**
   The user can access news articles as 4mail uses an API to gather articles
@@ -72,7 +72,7 @@ The user can see and click on multiple news articles
 
 
 
-3.  #Create an account (register)
+#3. Create an account (register)
 
 - **Summary:**
   A user who has internet access creates a 4Mail account
@@ -103,7 +103,7 @@ The user can see and click on multiple news articles
   
   
 
-4. #Send an email
+#4. Send an email
 
 - **Summary:**
   A user who has a 4mail account will send an email to a recipient.
@@ -136,7 +136,7 @@ The user can see and click on multiple news articles
 
 
 
-5. #Log In/ Log Out
+#5. Log In/ Log Out
 
 - **Summary:**  
   The users go to the website to use their registered accounts to log in their account to do operations inside their accounts like sending, receiving emails, and crossing or inserting to-do works. After that, they can log out of their account on 4Mail.
@@ -173,7 +173,8 @@ After logging in successfully or logging out successfully, the users can access 
 1. 4Mail automatically logs the user out if the user's session in this web page times out due to inactivity for a long time like 30 minutes or 1 hour.
 
 
-6. #Password Reset (When the users forget their password)
+
+#6. Password Reset (When the users forget their password)
 
 - **Summary:** When the users forget their password during logging in or just not remember it, they can go to the 4Mail signing in page and then reset their account’s password.
 
@@ -205,7 +206,7 @@ If the users enter a Password which Doesn’t meet the password requirements of 
 
 
 
-7. #Send a Chat to Someone
+#7. Send a Chat to Someone
    Summary: Users can send a chat message to a recipient who is also registered on 4Mail.
 
 - **Actors:** The users, the recipient (and 4Mail)
@@ -235,7 +236,7 @@ If the users enter a Password which Doesn’t meet the password requirements of 
 
 
 
-8. #Star Important Emails:
+#8. Star Important Emails:
 
 - **Summary:** Users can mark an email as "starred" to indicate that it is important or needs to be saved for later.
 
