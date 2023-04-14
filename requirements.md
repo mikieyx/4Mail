@@ -1,26 +1,26 @@
 ## Functional Requirements
 
-Create an account (register) [Cedric]
-Log in/Log out [Alex]
-Attach image/file to email [Alex]
-Password reset [Alex]
-Connect to external News Articles API [Michael]
-Send an email [Cedric]
-Delete emails [Cedric]
-Send a chat to someone [Van]
-Add a task to the do list [Michael]
-Cross something off the todo list [Michael]
-Star important emails [Van]
-Search Emails/Filter emails [Van]
+1. Create an account (register) [Cedric]
+2. Log in/Log out [Alex]
+3. Attach image/file to email [Alex]
+4. Password reset [Alex]
+5. Connect to external News Articles API [Michael]
+6. Send an email [Cedric]
+7. Delete emails [Cedric]
+8. Send a chat to someone [Van]
+9. Add a task to the do list [Michael]
+10. Cross something off the todo list [Michael]
+11. Star important emails [Van]
+12. Search Emails/Filter emails [Van]
 
 ## Non Functional Requirements
 
-Web app runs on chrome
-Sends emails and texts within 3 seconds
+1. Web app runs on chrome
+2. Sends emails and texts within 3 seconds
 
 ## Use Cases
 
-1. Add a task to the todo list
+#1. Add a task to the todo list
 
 - **Summary:**
   The user creates adds a task to his/her todo list
@@ -47,7 +47,7 @@ Sends emails and texts within 3 seconds
 5. The task name and/or date are blank
 6. The system prompts the user to fill in the blank
 
-7. Connect to external News Articles API
+#2. Connect to external News Articles API
 
 - **Summary**
   The user can access news articles as 4mail uses an API to gather articles
@@ -68,7 +68,7 @@ Sends emails and texts within 3 seconds
 -**Primary Postconditions:**
 The user can see and click on multiple news articles
 
-3.  Create an account (register)
+#3. Create an account (register)
 
 - **Summary:**
   A user who has internet access creates a 4Mail account
@@ -97,7 +97,7 @@ The user can see and click on multiple news articles
 - **Primary Postconditions:**
   The user is able to register for an account and can now log in to send and receive chats and emails from or to other users. / The user is not able to register and has to re-do the registration form.
 
-4. Send an email
+#4. Send an email
 
 - **Summary:**
   A user who has a 4mail account will send an email to a recipient.
@@ -128,7 +128,7 @@ The user can see and click on multiple news articles
 - **Primary Postconditions:**
   The user is able to send a message to the recipient(s) / The user is not able to send a message and has to re-enter a valid recipient email address
 
-5. Log In/ Log Out
+#5. Log In/ Log Out
 
 - **Summary:**  
   The users go to the website to use their registered accounts to log in their account to do operations inside their accounts like sending, receiving emails, and crossing or inserting to-do works. After that, they can log out of their account on 4Mail.
@@ -164,7 +164,7 @@ After logging in successfully or logging out successfully, the users can access 
 
 1. 4Mail automatically logs the user out if the user's session in this web page times out due to inactivity for a long time like 30 minutes or 1 hour.
 
-2. Password Reset (When the users forget their password)
+#6. Password Reset (When the users forget their password)
 
 - **Summary:** When the users forget their password during logging in or just not remember it, they can go to the 4Mail signing in page and then reset their account’s password.
 
@@ -194,8 +194,8 @@ If the users type the invalid email address, 4Mail automatically displays the er
 
 If the users enter a Password which Doesn’t meet the password requirements of the 4Mail website, 4Mail automatically displays the error message like ‘Password DOES not meet Requirements’, then notifies them why their new one is wrong; for example, it likes “Please type 6-8 lowercase letters” when the users input less than 6 lowercase letters.
 
-7. Send a Chat to Someone
-   Summary: Users can send a chat message to a recipient who is also registered on 4Mail.
+#7. Send a Chat to Someone
+Summary: Users can send a chat message to a recipient who is also registered on 4Mail.
 
 - **Actors:** The users, the recipient (and 4Mail)
 
@@ -222,7 +222,7 @@ If the users enter a Password which Doesn’t meet the password requirements of 
 3. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.
 4. If the user encounters an error while typing the message, such as exceeding the character limit, the user will be prompted with an error message.
 
-5. Star Important Emails:
+#8. Star Important Emails:
 
 - **Summary:** Users can mark an email as "starred" to indicate that it is important or needs to be saved for later.
 
