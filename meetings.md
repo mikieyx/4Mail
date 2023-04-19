@@ -16,6 +16,6 @@ First meeting on 4/7/22, all subsequent meetings are on Tuesday at 9PM
 - Cedric will focus on registration this week
 - Alex will focus on logging in and logging out
 - Michael will focus on adding something to the to do list and setting up the database
-- Van will focus on sending chat. Create a new branch called "send-chat" at commit 3710933 to make sending chat function.
+- Van will focus on sending chat. 
 - Try to fix the issues in milestone 1.
 - Everyone will focus on one finishing requirement this week by 4/21 and finish the second requirement by 4/28
