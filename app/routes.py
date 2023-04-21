@@ -1,6 +1,6 @@
 from app import myapp_obj
-from flask import escape
-from flask import render_template
+from flask import escape, render_template
+from .forms import LoginForm
 
 
 @myapp_obj.route("/")
@@ -12,5 +12,6 @@ def register():
     return render_template('register.html')
 
 @myapp_obj.route("/login")
-def logIn():
-    return render_template('login.html')
+def login():
+    form = LoginForm()
+    return render_template('login.html', form=form)

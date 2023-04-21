@@ -1,24 +1,18 @@
-<html>
-    <head>
-        <title>4Mail Log In</title>
-    </head>
-    <body>
-        <h1>Log In </h1>
-        <div>
-            <div class="login-E-box">
-                <input type="email" required>
-                <label>Email Address</label>
-            </div>
+{% extends "sample.html"%}
 
-            <div class="login-PW-box">
-                <input type="password" required>
-                <label>Password</label>
-            </div>
+{% block content %}
+<h1>Log In</h1>
+<form>
+    {{form.hidden_tag()}}
+    <p> {{form.username.label}} <br>
+       {{form.username(size=32)}}</p>
 
-            <div>
-                <button>Log In</button>
-            </div>
+    <p> {{form.password.label}} <br>
+       {{form.password(size=32)}}</p>
 
-        </div>
-    </body>
-</html>
+    <p> {{form.remember_me.label}} <br>
+       {{form.remember_me()}}</p>
+
+    <p>{{form.submit()}}</p>
+</form>
+{% endblock %}
