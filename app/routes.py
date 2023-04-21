@@ -1,5 +1,5 @@
-from app import myapp_obj
-from flask import escape
+from app import myapp_obj, LoginForm
+from flask import escape, redirect
 from flask import render_template
 
 
@@ -7,10 +7,16 @@ from flask import render_template
 def home():
     return render_template('sample.html')
 
+
 @myapp_obj.route("/register")
 def register():
     return render_template('register.html')
 
-@myapp_obj.route("/login")
+
+@myapp_obj.route("/login", methods=['GET', 'POST'])
 def logIn():
+    form = LoginForm()
+    if form.validate_on_submit():
+        print('Hi Valid Input')
+        return redirect('/')
     return render_template('login.html')
