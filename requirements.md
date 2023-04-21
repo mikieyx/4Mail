@@ -16,7 +16,7 @@
 ## Non Functional Requirements
 
 1. Web app runs on chrome
-2. Sends emails and texts within 3 seconds
+2. Each web page loads within 5 seconds
 
 ## Use Cases
 
