@@ -1,5 +1,8 @@
+from app import routes, models
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
 myapp_obj = Flask(__name__)
+# myapp_obj.config.from_mapping(..)
 
-from app import routes
+db = SQLAlchemy(myapp_obj)
