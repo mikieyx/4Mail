@@ -142,15 +142,12 @@ The user can see and click on multiple news articles
 - **Primary Sequence:**
 
 1. The users navigate to the website which requires the users login to their accounts first (login page of 4Mail).
-2. The users enter their username and passwords of their account to the website (login page of 4Mail).
-3. The website authenticates the users’ right after they click the login button “Log In”.
-4. If it is successful, then the website will redirect the users to the page of their account (maybe their profile or their mail boxes).
-5. Now the users can access the features of this website, mainly sending, receiving emails, and organizing their to-do tasks.
-6. After they’re done operations in their account, the users will navigate to the “Log Out” button in their account/ their profile in the corner of the webpage.
-7. Then, the users click the “Log Out” button.
+2. The users enter their username and passwords of their account to the website (login page of 4Mail), and then they click 'Log In'.
+4. If it is successful, then the website will redirect the users to the page of their account (maybe their profile or their mail boxes): The users can access the features of this website, mainly sending, receiving emails, and organizing their to-do tasks. 
+6. After they’re done operations in their account, the users will navigate to the “Log Out” button to click the “Log Out” button.  in their account/ their profile in the corner of the webpage.
 8. If it is successful, then 4Mail logs the users out and clears their current session data, and redirects them to the login page or the 4Mail’s homepage.
 
-- **Primary Postconditions:**
+- **Primary Post-conditions:**
   After logging in successfully, 4Mail stores the users’ login information securely. Furthermore, after logging out successfully, 4Mail clears the users’ current session data, and redirects them to the login page or the website’s homepage.
 
 After logging in successfully or logging out successfully, the users can access or close access to all of the features of 4Mail.

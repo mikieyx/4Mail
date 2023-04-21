@@ -1,8 +1,8 @@
 {% extends "sample.html"%}
 
 {% block content %}
-<h1>Log In</h1>
-<form>
+<h1>Log In - 4Mail</h1>
+<form action="" method="POST" novalidate>
     {{form.hidden_tag()}}
     <p> {{form.username.label}} <br>
        {{form.username(size=32)}}</p>
