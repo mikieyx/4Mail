@@ -81,13 +81,11 @@ The user can see and click on multiple news articles
 
 - **Primary Sequence:**
 
-1. User who has internet access goes to the web site’s homepage
-2. The user clicks on the create account button
-3. The system gives out a registration form that asks for a username, email address and password
-4. User inputs a username, email address, and a password
-5. The system checks the validity of the username, email address, and password
-6. The system creates the account
-7. The system redirects the user to the log in page.
+1. The system gives out a registration form that asks for a username, email address and password
+2. User inputs a username, email address, and a password
+3. The system checks the validity of the username, email address, and password
+4. The system creates the account
+5. The system redirects the user to the log in page.
 
 - **Alternate Sequence:**
 
@@ -113,13 +111,12 @@ The user can see and click on multiple news articles
 
 - **Primary Sequence:**
 
-1. The user clicks on the “compose” button
-2. The user enters a message on the text box
-3. The user selects one or more recipients by inputting their email addresses
-4. The user clicks on the “send” button
-5. The system checks the validity of the email address(es)
-6. The system sends the message to the recipient(s)
-7. The system shows a message indicating that the message has been sent successfully
+1. The user enters a message on the text box
+2. The user selects one or more recipients by inputting their email addresses
+3. The user clicks on the “send” button
+4. The system checks the validity of the email address(es)
+5. The system sends the message to the recipient(s)
+6. The system shows a message indicating that the message has been sent successfully
 
 - **Alternate Sequence:**
 
