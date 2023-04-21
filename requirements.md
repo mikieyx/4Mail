@@ -16,7 +16,7 @@
 ## Non Functional Requirements
 
 1. Web app runs on chrome
-2. Sends emails and texts within 3 seconds
+2. Each web page loads within 5 seconds
 
 ## Use Cases
 
@@ -192,7 +192,8 @@ If the users type the invalid email address, 4Mail automatically displays the er
 If the users enter a Password which Doesn’t meet the password requirements of the 4Mail website, 4Mail automatically displays the error message like ‘Password DOES not meet Requirements’, then notifies them why their new one is wrong; for example, it likes “Please type 6-8 lowercase letters” when the users input less than 6 lowercase letters.
 
 #7. Send a Chat to Someone
-Summary: Users can send a chat message to a recipient who is also registered on 4Mail.
+
+- **Summary:** : Users can send a chat message to a recipient who is also registered on 4Mail.
 
 - **Actors:** The users, the recipient (and 4Mail)
 
