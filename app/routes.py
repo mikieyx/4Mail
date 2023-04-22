@@ -1,20 +1,12 @@
-from app import myapp_obj, LoginForm
-from flask import escape, redirect
-from flask import render_template
-from flask import redirect
-from flask import flash
 from .forms import LoginForm
 from app import myapp_obj
-from flask_login import current_user
-from flask_login import login_user
-from flask_login import logout_user
-from flask_login import login_required
+from flask import render_template, redirect, flash
+from flask_login import current_user, login_user, logout_user, login_required
 
 
 @myapp_obj.route("/")
 def home():
     return render_template('sample.html')
-
 
 @myapp_obj.route("/register")
 def register():
@@ -34,11 +26,3 @@ def login():
         flash(f'Here are the input {form.username.data} and {form.password.data}')
         return redirect('/')
     return render_template('login.html', form=form)
-
-@myapp_obj.route("/login", methods=['GET', 'POST'])
-def logIn():
-    form = LoginForm()
-    if form.validate_on_submit():
-        print('Hi Valid Input')
-        return redirect('/')
-    return render_template('login.html')

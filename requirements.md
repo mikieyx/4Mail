@@ -39,7 +39,7 @@
 4. The user clicks create button
 5. System checks that task name and the date aren't blank
 
-- **Primary Postconditions:**
+- **Primary Post-conditions:**
   The task is added to the todo list, the task is added to the database as well
 
 - **Alternative Sequence:**
@@ -65,7 +65,7 @@
 3. The system organizes the info from the news articles and displays it in an organized fashion
 4. The page opens and the user can see several different news articles
 
--**Primary Postconditions:**
+-**Primary Post-conditions:**
 The user can see and click on multiple news articles
 
 #3. Create an account (register)
@@ -94,7 +94,7 @@ The user can see and click on multiple news articles
 4. a: A user’s input is invalid, so the website gives out an error message to ask the user to correct the invalid input.
 5. b: A user already has an existing account, so the website will give an error message saying that the email address already has an existing account.
 
-- **Primary Postconditions:**
+- **Primary Post-conditions:**
   The user is able to register for an account and can now log in to send and receive chats and emails from or to other users. / The user is not able to register and has to re-do the registration form.
 
 #4. Send an email
@@ -125,7 +125,7 @@ The user can see and click on multiple news articles
 
 5. a: The user inputs an invalid recipient email address so the system shows an error message saying that the email address does not exist.
 
-- **Primary Postconditions:**
+- **Primary Post-conditions:**
   The user is able to send a message to the recipient(s) / The user is not able to send a message and has to re-enter a valid recipient email address
 
 #5. Log In/ Log Out
@@ -142,24 +142,26 @@ The user can see and click on multiple news articles
 - **Primary Sequence:**
 
 1. The users navigate to the website which requires the users login to their accounts first (login page of 4Mail).
-2. The users enter their username and passwords of their account to the website (login page of 4Mail), and then they click 'Log In'.
-4. If it is successful, then the website will redirect the users to the page of their account (maybe their profile or their mail boxes): The users can access the features of this website, mainly sending, receiving emails, and organizing their to-do tasks. 
-6. After they’re done operations in their account, the users will navigate to the “Log Out” button to click the “Log Out” button.  in their account/ their profile in the corner of the webpage.
-8. If it is successful, then 4Mail logs the users out and clears their current session data, and redirects them to the login page or the 4Mail’s homepage.
+2. The users enter their username and passwords of their account to the website (login page of 4Mail), and then click 'Log In'.
+3. If it is successful in logging in, then the website will redirect the users to the page of their account (maybe their profile or their mail boxes).
+4. Then if the users want to log out, they will navigate to the “Log Out” button to click the “Log Out” button in their account/their profile in the corner of the webpage.
+5. If it is successful in logging out, 4Mail will log the users out and redirects them to the login page or 4Mail's homepage.
 
 - **Primary Post-conditions:**
-  After logging in successfully, 4Mail stores the users’ login information securely. Furthermore, after logging out successfully, 4Mail clears the users’ current session data, and redirects them to the login page or the website’s homepage.
+  
+1. After logging in successfully, 4Mail stores the users’ login information securely. 
+2. After logging out successfully, 4Mail clears the users’ current session data, and redirects them to the login page or the website’s homepage.
 
-After logging in successfully or logging out successfully, the users can access or close access to all of the features of 4Mail.
+After logging in successfully or logging out successfully, the users can access or close all the features of the website 4Mail, mainly sending, receiving emails, and organizing their to-do tasks. 
 
 - **Alternate Sequence (Log In):**
 
 1. If the users enter the invalid username or password, then the website automatically displays an error message to notify the users and reminds them to input the correct ones like “Invalid username, please type the correct one!” or “Invalid password, please type the correct one!”.
-2. After 10 times of entering the invalid username/password, 4Mail automatically locks the accounts of the users to increase the protection to the users’ accounts. In order to reactivate their accounts, please contact the customer service email for more information.
 
 - **Alternate Sequence (Log Out):**
 
 1. 4Mail automatically logs the user out if the user's session in this web page times out due to inactivity for a long time like 30 minutes or 1 hour.
+
 
 #6. Password Reset (When the users forget their password)
 
@@ -172,24 +174,23 @@ After logging in successfully or logging out successfully, the users can access 
 - **Primary Sequence:**
 
 1. The users click the button “Forgot Password?” below the ‘Log In’ button.
-2. The users input their email address associated with their account and click the ‘Reset via Email’ button, then 4Mail immediately verifies the users’ email address and sends a password reset link to the users’ email.
-3. The users click on the password reset link in their associated email address, then 4Mail redirects them to the password reset website.
-4. The users input the new password which meets 4Mail's password requirements like required numbers of lowercase, uppercase letters, integers, and special characters. Then they click the ‘Confirm’ button to confirm their new passwords.
-5. After successful password requirements verification of 4Mail, it automatically updates the new password for the users’ account.
-6. After step 5, 4Mail automatically redirects the users to their account page like the profile section to let them access all of the features of their accounts like receiving and sending the email, or organizing their to-do tasks in their account.
+2. The users input their email address associated with their account and click the ‘Reset via Email’ button, then 4Mail sends a password reset link to the users’ email.
+3. If it is successful in receiving password reset link email, The users click on the password reset link in their associated email address, then it redirects them to the password reset website of 4Mail.
+4. The users input the new password which meets 4Mail's password requirements like the required numbers of lowercase, uppercase letters, integers, and special characters. Then they click the ‘Confirm’ button to confirm their new passwords.
+5. If it is successful in checking the new password, 4Mail automatically updates the new password for the users’ account and then redirects them to their account webpage.
 
-- **Primary Postconditions:**
+- **Primary Post-conditions:**
 
 After password requirements verification successfully, the 4Mail website stores the users’ new password securely.
 After resetting the password successfully, the users can access their account and use all of the 4Mail’s features like receiving and sending the email, or organizing their to-do tasks with their new password.
 
 - **Alternate Sequence 1: Input Wrong Email Address:**
 
-If the users type the invalid email address, 4Mail automatically displays the error message like ‘Invalid Email Address, please type other email address!’, then let them type again.
+If the users type the invalid email address, then 4Mail displays the error message like ‘Invalid Email Address, please type other email address!’, and let them type again.
 
 - **Alternate Sequence 2: Enter the Password which Doesn’t meet the password requirements of 4 Mail:**
 
-If the users enter a Password which Doesn’t meet the password requirements of the 4Mail website, 4Mail automatically displays the error message like ‘Password DOES not meet Requirements’, then notifies them why their new one is wrong; for example, it likes “Please type 6-8 lowercase letters” when the users input less than 6 lowercase letters.
+If the users enter a Password which Doesn’t meet the password requirements of the 4Mail website, it displays the error message like ‘Password DOES not meet Requirements’, then notifies them why their new one is wrong; for example, it likes “Please type 6-8 lowercase letters” when the users input less than 6 lowercase letters.
 
 #7. Send a Chat to Someone
 
