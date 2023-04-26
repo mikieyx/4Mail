@@ -23,6 +23,6 @@ def login():
         # check the password
         # if password matches
         # login_user(user)
-        flash(f'Here are the input {form.username.data} and {form.password.data}')
+        flash(f'4Mail Login Requested for User {form.username.data} and remember_me = {form.remember_me.data}')
         return redirect('/')
-    return render_template('login.html', form=form)
+    return render_template('login.html', title='Log In' , form=form)

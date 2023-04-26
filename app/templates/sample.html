@@ -3,7 +3,26 @@
         <title>Home Page - my blog</title>
     </head>
     <body>
-        <h1 align="center"> Testing Homepage </h1>
+        <h1 align="center"> <strong> Testing Homepage </strong> </h1>
 
+        <hr>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li align="center">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <hr>
+
+        <div>
+            <center> My blog: </center>
+            <a href="/"> <center> Home </center> </a>
+            <a href="/login"> <center> LogIn </center> </a>
+        </div>
     </body>
 </html>
