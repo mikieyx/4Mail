@@ -7,6 +7,7 @@ from flask_bootstrap import Bootstrap
 from flask_mail import Mail
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database_name.db'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)

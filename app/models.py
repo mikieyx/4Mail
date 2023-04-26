@@ -4,7 +4,7 @@ from flask_login import UserMixin
 from time import time
 import jwt
 
-#app.config['SECRET_KEY'] = 'secret key'
+
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -34,6 +34,8 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
+with app.app_context():
+    db.create_all()
 
 @login.user_loader
 def load_user(id):
