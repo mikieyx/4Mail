@@ -1,16 +1,19 @@
 from flask import Flask
+from config import Config
 from flask_sqlalchemy import SQLAlchemy
-import os
+from flask_migrate import Migrate
+from flask_login import LoginManager
+from flask_bootstrap import Bootstrap
+from flask_mail import Mail
 
-myapp_obj = Flask(__name__)
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database_name.db'
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+login = LoginManager(app)
+login.login_view = 'login'
+bootstrap = Bootstrap(app)
+login.init_app(app)
+mail = Mail(app)
 
-basedir = os.path.abspath(os.path.dirname(__file__))
-
-myapp_obj.config.from_mapping(
-    SECRET_KEY='4mail',
-    SQLALCHEMY_DATABASE_URI='sqlite:///' + os.path.join(basedir, 'app.db'),
-    SQLALCHEMY_TRACK_MODIFICATIONS=False
-)
-
-db = SQLAlchemy(myapp_obj)
 from app import routes, models

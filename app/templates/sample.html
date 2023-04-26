@@ -1,8 +1,31 @@
-<html>
-    <head>
-        <title>Home Page - my blog</title>
-    </head>
-    <body>
-        <h1>Testing </h1>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      {% if current_user.is_anonymous %}
+        <h3>Please login to use the password checker!</h3>
+    </div>
+  </div>
+      {% else %}
+        <h1>Welcome, {{ current_user.username }}!</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      {{ wtf.quick_form(form) }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      </br></br></br>
+      {% if password_checker == True %}
+        <h4>The password you input is correct</h4>
+      {% elif password_checker == False %}
+        <h4>The password you input is not correct</h4>
+      {% endif %}
+    </div>
+  </div>
+      {% endif %}
+{% endblock %}
