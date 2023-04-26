@@ -14,3 +14,6 @@ myapp_obj.config.from_mapping(
 
 db = SQLAlchemy(myapp_obj)
 from app import routes, models
+
+with myapp_obj.app_context():
+    db.create_all()
