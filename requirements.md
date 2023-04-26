@@ -33,7 +33,6 @@
   2. The user writes any details/notes about the task (This can be optional)
   3. The user writes the date that the task should be completed
   4. The user clicks create button
-  5. System checks that task name and the date aren't blank
 
 - **Primary Post-conditions:** The task is added to the todo list, the task is added to the database as well
 
