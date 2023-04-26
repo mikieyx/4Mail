@@ -39,11 +39,15 @@ def register():
     form = RegistrationForm()
 
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data)
-        user.set_password(form.password.data)
-
-        db.session.add(user)
-        db.session.commit()
-        flash(f'Congratulations, {form.username.data} is an 4Mail user now!')
-        return redirect(url_for('login'))
-    return render_template('register.html', title='Register', form=form)
+        if db.session.query(User).filter_by(username=form.username.data).count() < 1:
+            user = User(username=form.username.data, email=form.email.data)
+            user.set_password(form.password.data)
+            db.session.add(user)
+            db.session.commit()
+            flash(f'Congratulations, {form.username.data} is an 4Mail user now!')
+            return redirect(url_for('login'))
+        else:
+            flash(f'Sorry, {form.username.data} is already an 4Mail user!')
+            return redirect(url_for('login'))
+    
+    return render_template('register.html', title='Register 4Mail', form=form)
