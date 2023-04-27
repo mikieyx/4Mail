@@ -7,12 +7,12 @@ import time
 
 @myapp_obj.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('sample.html')
+    return render_template('home.html')
 
 @myapp_obj.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('sample'))
+        return redirect(url_for('home'))
     
     form = LoginForm()
 
@@ -34,7 +34,7 @@ def login():
 @myapp_obj.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('sample'))
+        return redirect(url_for('home'))
     
     form = RegistrationForm()
 
@@ -51,3 +51,8 @@ def register():
             return redirect(url_for('login'))
     
     return render_template('register.html', title='Register 4Mail', form=form)
+
+@myapp_obj.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
