@@ -1,28 +1,31 @@
-<html>
-    <head>
-        <title>Home Page - my blog</title>
-    </head>
-    <body>
-        <h1 align="center"> <strong> Testing Homepage </strong> </h1>
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
-        <hr>
-
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li align="center">{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
-
-        <hr>
-
-        <div>
-            <center> My blog: </center>
-            <a href="/"> <center> Home </center> </a>
-            <a href="/login"> <center> LogIn </center> </a>
-        </div>
-    </body>
-</html>
+{% block app_content %}
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      {% if current_user.is_anonymous %}
+        <h3>Please login to use the password checker!</h3>
+    </div>
+  </div>
+      {% else %}
+        <h1>Welcome, {{ current_user.username }}!</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      {{ wtf.quick_form(form) }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      </br></br></br>
+      {% if password_checker == True %}
+        <h3>The password you input is correct</h3>
+      {% elif password_checker == False %}
+        <h3>The password you input is not correct</h3>
+      {% endif %}
+    </div>
+  </div>
+      {% endif %}
+{% endblock %}
