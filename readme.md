@@ -23,40 +23,40 @@ Installation
 
 # Usage
 1.Add a task to the todo list:
-  Navigate to the 4Mail website.
-  Log in to your account.
-  Click on the "to-do list" page.
-  Click the "add task" button.
-  Write the name of the task to be completed.
-  Write any details/notes about the task (optional).
-  Write the date that the task should be completed.
-  Click the "create" button.
+- Navigate to the 4Mail website.
+- Log in to your account.
+- Click on the "to-do list" page.
+- Click the "add task" button.
+- Write the name of the task to be completed.
+- Write any details/notes about the task (optional).
+- Write the date that the task should be completed.
+- Click the "create" button.
 2. Connect to external News Articles API:
-  Navigate to the 4Mail website.
-  Log in to your account.
-  Click on the "news" page.
-  The system will gather articles and display them in an organized fashion.
+- Navigate to the 4Mail website.
+- Log in to your account.
+- Click on the "news" page.
+- The system will gather articles and display them in an organized fashion.
 3. Create an account (register):
-  Navigate to the 4Mail website.
-  Click on the "create account" button.
-  Fill in the registration form that asks for a username, email address, and password.
-  Submit the form.
-  The system will check the validity of the input and create the account.
-  The system will redirect you to the login page.
+- Navigate to the 4Mail website.
+- Click on the "create account" button.
+- Fill in the registration form that asks for a username, email address, and password.
+- Submit the form.
+- The system will check the validity of the input and create the account.
+- The system will redirect you to the login page.
 4. Send an email:
-  Navigate to the 4Mail website.
-  Log in to your account.
-  Click on the "compose" button.
-  Enter a message in the text box.
-  Select one or more recipients by inputting their email addresses.
-  Click on the "send" button.
-  The system will check the validity of the email address(es) and send the message.
+- Navigate to the 4Mail website.
+- Log in to your account.
+- Click on the "compose" button.
+- Enter a message in the text box.
+- Select one or more recipients by inputting their email addresses.
+- Click on the "send" button.
+- The system will check the validity of the email address(es) and send the message.
 5. Log In/ Log Out:
-  Navigate to the 4Mail website.
-  Click on the "Log In" button and enter your login credentials (username and password).
-  If successful, the system will redirect you to your account page.
-  To log out, click on the "Log Out" button in your account/your profile in the corner of the webpage.
-  The system will log you out and redirect you to the login page or 4Mail's homepage.
+- Navigate to the 4Mail website.
+- Click on the "Log In" button and enter your login credentials (username and password).
+- If successful, the system will redirect you to your account page.
+- To log out, click on the "Log Out" button in your account/your profile in the corner of the webpage.
+- The system will log you out and redirect you to the login page or 4Mail's homepage.
 
 # Contributors
   Michael Pavlik (@mikieyx) Team Lead
