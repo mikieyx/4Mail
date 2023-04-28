@@ -78,7 +78,7 @@ def chat():
 @myapp_obj.route("/todo")
 @login_required
 def todo():
-    tasks = current_user.tasks.all()
+    tasks = Task.query.filter_by(user_id=current_user.id).all()
     return render_template('todo.html', tasks=tasks)
 
 
@@ -87,8 +87,7 @@ def todo():
 def add_task():
     title = request.form['title']
     due_date = request.form['due_date']
-    task = Task(title=title, due_date=due_date)
-    current_user.tasks.append(task)
+    task = Task(title=title, due_date=due_date, user_id=current_user.id)
     db.session.add(task)
     db.session.commit()
     return redirect(url_for('todo'))
