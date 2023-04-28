@@ -1,11 +1,12 @@
-from app import myapp_obj, LoginForm
+from app import myapp_obj
+from .forms import LoginForm
 from flask import escape, redirect
 from flask import render_template
 
 
 @myapp_obj.route("/")
 def home():
-    return render_template('sample.html')
+    return render_template('base.html')
 
 
 @myapp_obj.route("/register")
