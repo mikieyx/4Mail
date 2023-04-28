@@ -13,12 +13,12 @@ The following are the main features of 4Mail:
 
 5. Log In/ Log Out: Users can log in to their accounts to access their emails, to-do lists, and other features, and they can log out when they are done using the system.
 
-How to use
+# How to use
 Prerequisites
   - In order to run this project make sure to install flask, flask_login, flask_sqlalchemy, flask_bootstrap, flask_migrate, flask_mail, config, werzeug.security, flask_wtf, wtforms, and wtforms.validators.
 
 
-Installation
+# Installation
   - pip install NAME
 
 # Usage
