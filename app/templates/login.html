@@ -1,16 +1,27 @@
+{% extends "base.html"%}
+
 {% block content %}
-<h1>Sign In</h1>
-<form>
-    {{form.hidden_tag()}}
-    <p> {{form.username.label}} <br>
-       {{form.username(size=32)}}</p>
+<h1 align="center">Log In - 4Mail</h1>
 
-    <p> {{form.password.label}} <br>
-       {{form.password(size=32)}}</p>
+<div class="login-form-group">
+   <form action="" method="POST" novalidate>
+      {{form.hidden_tag()}} 
+         <p align="center"> {{form.username.label}} <br>
+            {{form.username(size=32)}}</p>
+  
+         <p align="center"> {{form.password.label}} <br>
+            {{form.password(size=32)}}</p>
+  
+         <p align="center"> {{form.remember_me.label}} <br>
+            {{form.remember_me()}}</p>
+  
+         <p align="center">{{form.submit()}}</p>
+   </form>
+</div>
 
-    <p> {{form.remember_me.label}} <br>
-       {{form.remember_me()}}</p>
-
-    <p>{{form.submit()}}</p>
-</form>
+<div class="creatAccount">
+   <hr>
+   <p align="center"> <strong> New Users? </strong> </p>
+   <a id="registration" href="/register"> <center> Create Account </center> </a>
+</div>
 {% endblock %}
