@@ -3,14 +3,15 @@ from .forms import LoginForm, RegistrationForm, ChatForm
 from app import myapp_obj
 
 @myapp_obj.route("/")
+@myapp_obj.route("/hello")
+def hello():
+    #return "Hello, welcome to 4Mail! Please log in to start sending chats."
+    return render_template('hello.html')
+
 @myapp_obj.route("/index")
 def index():
     recipient = 'RecipientName' # assume recipient's username is "RecipientName"
     return render_template('index.html', recipient=recipient)
-
-@myapp_obj.route("/hello")
-def hello():
-    return "Hello, welcome to 4Mail! Please log in to start sending chats."
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():

@@ -1,10 +1,13 @@
-{% extends "base.html" %}
-
-{% block content %}
-        <h1>Hello, {{name}} !</h1>
-        {% for i in books %}
-        <ul>
-            <li><p>{{i.author}}: {{i.book}}</p></li>
-        </ul>
-        {% endfor %}
-{% endblock %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>4Mail</title>
+  </head>
+  <body>
+    <h1>Hello, welcome to 4Mail!</h1>
+    <p>Please select an option below:</p>
+    <a href="{{ url_for('login') }}"><button>Login</button></a>
+    <a href="{{ url_for('register') }}"><button>Register Account</button></a>
+    <a href="{{ url_for('chat') }}"><button>Send Chat</button></a>
+  </body>
+</html>
