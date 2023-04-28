@@ -1,52 +1,44 @@
-<<<<<<< HEAD
-from app import myapp_obj
-from .forms import LoginForm
-from flask import escape, redirect
-from flask import render_template
-=======
 from flask import render_template, flash, redirect, url_for, request
 from .forms import LoginForm, RegistrationForm, ChatForm
 from app import myapp_obj, db
 from flask_login import current_user, login_user, logout_user, login_required
 from .models import User
 import time
->>>>>>> 8998ec434feafe217c7e75fc58dcf8798e815f5c
+
 
 @myapp_obj.route('/', methods=['GET', 'POST'])
 def home():
-<<<<<<< HEAD
-    return render_template('base.html')
-=======
     return render_template('home.html')
->>>>>>> 8998ec434feafe217c7e75fc58dcf8798e815f5c
+
 
 @myapp_obj.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
-    
+
     form = LoginForm()
 
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
-        
+
         if user is None:
             flash('Invalid Username')
             return redirect(url_for('login'))
         if not user.check_password(form.password.data):
             flash('Invalid Password')
             return redirect(url_for('login'))
-        
+
         login_user(user, remember=form.remember_me.data)
         return redirect(url_for('home'))
-    
+
     return render_template('login.html', title='Sign In for 4Mail', form=form)
+
 
 @myapp_obj.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
-    
+
     form = RegistrationForm()
 
     if form.validate_on_submit():
@@ -55,18 +47,21 @@ def register():
             user.set_password(form.password.data)
             db.session.add(user)
             db.session.commit()
-            flash(f'Congratulations, {form.username.data} is an 4Mail user now!')
+            flash(
+                f'Congratulations, {form.username.data} is an 4Mail user now!')
             return redirect(url_for('login'))
         else:
             flash(f'Sorry, {form.username.data} is already an 4Mail user!')
             return redirect(url_for('login'))
-    
+
     return render_template('register.html', title='Register 4Mail', form=form)
+
 
 @myapp_obj.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('login'))
+
 
 @myapp_obj.route("/chat", methods=['GET', 'POST'])
 def chat():
@@ -78,3 +73,22 @@ def chat():
         flash(f'Message sent to {recipient}: {message}')
         return redirect(url_for('chat'))
     return render_template('chat.html', form=form)
+
+
+@myapp_obj.route("/todo")
+@login_required
+def todo():
+    tasks = current_user.tasks.all()
+    return render_template('todo.html', tasks=tasks)
+
+
+@myapp_obj.route('/todo/add', methods=['POST'])
+@login_required
+def add_task():
+    title = request.form['title']
+    due_date = request.form['due_date']
+    task = Task(title=title, due_date=due_date)
+    current_user.tasks.append(task)
+    db.session.add(task)
+    db.session.commit()
+    return redirect(url_for('todo'))
