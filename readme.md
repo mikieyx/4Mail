@@ -59,10 +59,10 @@ Installation
 - The system will log you out and redirect you to the login page or 4Mail's homepage.
 
 # Contributors
-  Michael Pavlik (@mikieyx) Team Lead
-  Cedric Briones (@cedricJB07)
-  Anh Nguyen (@AlexNguyenSJSU)
-  Van Duong (@vduong421)
+- Michael Pavlik (@mikieyx) Team Lead
+- Cedric Briones (@cedricJB07)
+- Anh Nguyen (@AlexNguyenSJSU)
+- Van Duong (@vduong421)
 
 
 
