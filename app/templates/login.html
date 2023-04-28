@@ -1,24 +1,27 @@
-<html>
-    <head>
-        <title>4Mail Log In</title>
-    </head>
-    <body>
-        <h1>Log In </h1>
-        <div>
-            <div class="login-E-box">
-                <input type="email" required>
-                <label>Email Address</label>
-            </div>
+{% extends "base.html"%}
 
-            <div class="login-PW-box">
-                <input type="password" required>
-                <label>Password</label>
-            </div>
+{% block content %}
+<h1 align="center">Log In - 4Mail</h1>
 
-            <div>
-                <button>Log In</button>
-            </div>
+<div class="login-form-group">
+   <form action="" method="POST" novalidate>
+      {{form.hidden_tag()}} 
+         <p align="center"> {{form.username.label}} <br>
+            {{form.username(size=32)}}</p>
+  
+         <p align="center"> {{form.password.label}} <br>
+            {{form.password(size=32)}}</p>
+  
+         <p align="center"> {{form.remember_me.label}} <br>
+            {{form.remember_me()}}</p>
+  
+         <p align="center">{{form.submit()}}</p>
+   </form>
+</div>
 
-        </div>
-    </body>
-</html>
+<div class="creatAccount">
+   <hr>
+   <p align="center"> <strong> New Users? </strong> </p>
+   <a id="registration" href="/register"> <center> Create Account </center> </a>
+</div>
+{% endblock %}
