@@ -63,6 +63,23 @@ def logout():
     return redirect(url_for('login'))
 
 
+@myapp_obj.route('/send_email', methods=['GET', 'POST'])
+def send_email():
+    if request.method == 'POST':
+        sender = request.form['sender']
+        recipient = request.form['recipient']
+        subject = request.form['subject']
+        body = request.form['message']
+        
+        email = Email(sender=sender, recipient=recipient, subject=subject, body=body)
+        db.session.add(email)
+        db.session.commit()
+        
+        return 'Email sent!'
+        
+    return render_template('Email.html')
+
+
 @myapp_obj.route("/chat", methods=['GET', 'POST'])
 def chat():
     form = ChatForm()
