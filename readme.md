@@ -3,15 +3,14 @@
 # Functionality
 The following are the main features of 4Mail:
 
-1. Add a task to the todo list: Users can create and manage their to-do lists by adding tasks that need to be completed. The system stores these tasks and allows the user to view them anytime.
-
-2. Connect to external News Articles API: Users can read news articles by clicking on the news page. The system uses an external news articles API to gather articles and then displays them in an organized fashion for the user.
-
-3. Create an account (register): Users can create an account by filling in a registration form that asks for a username, email address, and password. After submitting the form, the system checks the validity of the input and then creates the account.
-
-4. Send an email: Users can send emails to other users by composing a message and specifying the recipient's email address. The system then checks the validity of the recipient's email address and sends the message.
-
-5. Log In/ Log Out: Users can log in to their accounts to access their emails, to-do lists, and other features, and they can log out when they are done using the system.
+1. To-Do List: Users can create and manage their to-do list on the 4Mail website, adding tasks with details, due dates, and notes, and marking them as completed when finished.
+2. News Articles API: Users can access external news articles through the 4Mail website, with the system gathering and organizing articles in a user-friendly format.
+3. Account Creation: Users can easily create a new account on the 4Mail website by filling in a registration form with a username, email address, and password.
+4. Email Sending: Users can send emails to one or multiple recipients by composing a message, selecting recipients by email address, and clicking the "send" button.
+5. Account Login: Users can securely log in to their 4Mail account by entering their username and password on the login page.
+6. Account Logout: Users can easily log out of their 4Mail account by clicking on the "Log Out" button in their profile/account page, which will securely log them out and redirect them to the login page or homepage.
+7. Chat Messaging: Users can send chat messages to other 4Mail users by composing a message, selecting recipients by username, and clicking the "send" button, with recipients receiving notifications of new chat messages.
+8. Account Deletion: Users can choose to delete their 4Mail account by clicking on the "delete account" button in their account settings page and confirming the deletion, which will remove all associated data and log them out.
 
 # Installation
 - pip install flask
@@ -54,17 +53,37 @@ The following are the main features of 4Mail:
 4. Send an email:
 - Navigate to the 4Mail website.
 - Log in to your account.
-- Click on the "compose" button.
+- Click on the "send" button.
 - Enter a message in the text box.
 - Select one or more recipients by inputting their email addresses.
 - Click on the "send" button.
 - The system will check the validity of the email address(es) and send the message.
-5. Log In/ Log Out:
+5. Log In:
 - Navigate to the 4Mail website.
 - Click on the "Log In" button and enter your login credentials (username and password).
 - If successful, the system will redirect you to your account page.
+6. Log Out
+- Navigate to the 4Mail website.
 - To log out, click on the "Log Out" button in your account/your profile in the corner of the webpage.
 - The system will log you out and redirect you to the login page or 4Mail's homepage.
+7. Send a chat message:
+- Navigate to the 4Mail website.
+- Log in to your account.
+- Click on the "chat" button.
+- Enter a message in the text box.
+- Select one or more recipients by inputting their usernames.
+- Click on the "send" button.
+- The system will check the validity of the username(s) and send the message.
+- The recipients will receive a notification that they have received a new chat message.
+- The recipients can then log in to their accounts and click on the "chat" button to see and reply to the message(s).
+8. Delete Account:
+- Navigate to the 4Mail website.
+- Log in to your account.
+- Click on the "account settings" page.
+- Click on the "delete account" button.
+- The system will prompt you to confirm the deletion of your account.
+- If you confirm the deletion, the system will delete all data associated with your account and log you out.
+
 
 # Contributors
 - Michael Pavlik (@mikieyx) Team Lead
