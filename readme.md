@@ -13,13 +13,21 @@ The following are the main features of 4Mail:
 
 5. Log In/ Log Out: Users can log in to their accounts to access their emails, to-do lists, and other features, and they can log out when they are done using the system.
 
-# How to use
-Prerequisites
-  - In order to run this project make sure to install flask, flask_login, flask_sqlalchemy, flask_bootstrap, flask_migrate, flask_mail, config, werzeug.security, flask_wtf, wtforms, and wtforms.validators.
-
-
 # Installation
-  - pip install NAME
+- pip install flask
+- pip install Flask-WTF
+- pip install Flask-Login
+- pip install Werkzeug
+- pip install SQLAlchemy
+- pip install PyJWT
+
+# How to use
+1. Install Python 3.x on your computer (if it's not already installed). You can download Python from the official website: https://www.python.org/downloads/
+2. Install the required Python packages that listed in Installation above.
+3. Run the run.py script to start the program. You can do this by running the following command in your terminal or command prompt: python3 run.py
+4. Follow the prompts in the program to select your options and input your information.
+5. Once you have finished using the program, you can exit it by selecting the appropriate option in the menu or by pressing CTRL + C in your terminal or command prompt.
+
 
 # Usage
 1.Add a task to the todo list:
