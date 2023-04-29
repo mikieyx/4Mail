@@ -3,6 +3,7 @@ from .forms import LoginForm, RegistrationForm, ChatForm
 from app import myapp_obj, db
 from flask_login import current_user, login_user, logout_user, login_required
 from .models import Email, User
+import mysql.connector
 import time
 
 
@@ -77,6 +78,10 @@ def send_email():
         return 'Email sent!'
         
     return render_template('Email.html')
+
+
+
+    
 
 @myapp_obj.route("/chat", methods=['GET', 'POST'])
 def chat():
