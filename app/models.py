@@ -19,7 +19,7 @@ class User(db.Model, UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
-
+    
     def __repr__(self):
         return f'<User {self.id}: {self.username}>'
 
@@ -33,6 +33,23 @@ class Post(db.Model):
      def __repr__(self):
          return f'<Post {self.id}: {self.body}>'
 
+    
+class Email(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    sender = db.Column(db.String(120), nullable=False)
+    recipient = db.Column(db.String(120), nullable=False)
+    subject = db.Column(db.String(120), nullable=False)
+    body = db.Column(db.Text, nullable=False)
+    important = db.Column(db.Boolean, default=False)  # new field for important emails
+
+    def __repr__(self):
+        return f'<Email {self.id}: {self.subject}>'
+
+    def star_email(self):
+        self.important = True
+        db.session.commit()
+
+
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(256))
@@ -42,8 +59,7 @@ class Task(db.Model):
 
     def __repr__(self):
         return f'<Task user {self.id}: {self.name}>'
-
-
+    
 with myapp_obj.app_context():
     db.create_all()
 

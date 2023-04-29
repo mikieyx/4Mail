@@ -30,3 +30,4 @@ class ChatForm(FlaskForm):
     recipient = StringField('Recipient', validators=[DataRequired()])
     message = TextAreaField('Message', validators=[DataRequired(), Length(min=1, max=500)])
     submit = SubmitField('Send')
+

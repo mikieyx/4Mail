@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for, request
 from .forms import LoginForm, RegistrationForm, ChatForm
 from app import myapp_obj, db
 from flask_login import current_user, login_user, logout_user, login_required
-from .models import User
+from .models import Email, User
 import time
 
 
@@ -61,6 +61,33 @@ def register():
 def logout():
     logout_user()
     return redirect(url_for('login'))
+
+@myapp_obj.route('/send_email', methods=['GET', 'POST'])
+def send_email():
+    if request.method == 'POST':
+        sender = request.form['sender']
+        recipient = request.form['recipient']
+        subject = request.form['subject']
+        body = request.form['message']
+        
+        email = Email(sender=sender, recipient=recipient, subject=subject, body=body)
+        db.session.add(email)
+        db.session.commit()
+        
+        return 'Email sent!'
+        
+    return render_template('Email.html')
+
+@myapp_obj.route('/star_email/<int:email_id>')
+@login_required
+def star_email(email_id):
+    email = Email.query.get(email_id)
+    if email is not None:
+        email.star()
+        flash(f'The email "{email.subject}" has been marked as {"important" if email.is_important else "not important"}.')
+    else:
+        flash('The email could not be found.')
+    return redirect(url_for('inbox'))
 
 
 @myapp_obj.route("/chat", methods=['GET', 'POST'])
