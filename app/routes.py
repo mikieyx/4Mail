@@ -1,8 +1,9 @@
-from .forms import LoginForm, RegistrationForm
+from .forms import LoginForm, RegistrationForm, CheckPasswordForm, ResetPasswordRequestForm, ResetPasswordForm
 from app import myapp_obj, db
 from flask import render_template, redirect, flash, request, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 from .models import User
+from .email import send_password_reset_email
 import time
 
 @myapp_obj.route('/', methods=['GET', 'POST'])
@@ -56,3 +57,54 @@ def register():
 def logout():
     logout_user()
     return redirect(url_for('login'))
+
+@myapp_obj.route('/reset_password_request', methods=['GET', 'POST'])
+def reset_password_request():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+        
+    form = ResetPasswordRequestForm()
+
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+
+        if user: send_password_reset_email(user)
+
+        flash('In order to see the instructions to reset your password, check your email!')
+
+        return redirect(url_for('login'))
+    
+    return render_template('reset_password_request.html', title='Reset Password', form=form)
+
+@myapp_obj.route('/reset_password/<token>', methods=['GET', 'POST'])
+def reset_password(token):
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    
+    user = User.verify_reset_password_token(token)
+
+    if not User: return redirect(url_for('home'))
+
+    form = ResetPasswordForm()
+
+    if form.validate_on_submit():
+        user.set_password(form.password.data)
+        db.session.commit()
+
+        flash('Congratulations! Your password has already reset!')
+        flash('Now you can login to your account through your new password!')
+
+        return redirect(url_for('login'))
+    
+    return render_template('reset_password.html', form=form)
+
+@myapp_obj.route('/delete/<int:id>')
+def delete(id):
+    user = User.query.get_or_404(id) #attempt to get that task by the id and if it doesn't exist -> going to 404
+
+    try:
+        db.session.delete(user)
+        db.session.commit()
+        return redirect(url_for('home'))
+    except:
+        return 'There was something wrong when deleting your account!'

@@ -14,7 +14,15 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 myapp_obj.config.from_mapping(
     SECRET_KEY = '4mail',
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db'),
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = False,
+
+    # setting up email server variables
+    MAIL_SERVER = 'smtp.gmail.com',
+    MAIL_PORT = 465,
+    MAIL_USE_SSL = True,
+    MAIL_USERNAME = 'nguyenhoaianhhsgs@gmail.com',
+    MAIL_PASSWORD = '',
+    ADMINS = ['nguyenhoaianhhsgs@gmail.com']
 )
 
 db = SQLAlchemy(myapp_obj)

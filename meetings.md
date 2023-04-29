@@ -7,7 +7,7 @@ First meeting on 4/7/22, all subsequent meetings are on Tuesday at 9PM
 
 - Everyone attended meeting
 - Team Updates
-  We discussed which requirments we wanted to implement, assigned them. Everyone has to finish 2 use cases by 4/9/22 11:59 so we can turn in the first milestone.
+  We discussed which requirements we wanted to implement, assigned them. Everyone has to finish 2 use cases by 4/9/22 11:59 so we can turn in the first milestone.
 
 ### 2023-04-18
 
