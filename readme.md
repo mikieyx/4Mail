@@ -3,14 +3,14 @@
 # Functionality
 The following are the main features of 4Mail:
 
-1. To-Do List: Users can create and manage their to-do list on the 4Mail website, adding tasks with details, due dates, and notes, and marking them as completed when finished.
-2. News Articles API: Users can access external news articles through the 4Mail website, with the system gathering and organizing articles in a user-friendly format.
-3. Account Creation: Users can easily create a new account on the 4Mail website by filling in a registration form with a username, email address, and password.
-4. Email Sending: Users can send emails to one or multiple recipients by composing a message, selecting recipients by email address, and clicking the "send" button.
-5. Account Login: Users can securely log in to their 4Mail account by entering their username and password on the login page.
-6. Account Logout: Users can easily log out of their 4Mail account by clicking on the "Log Out" button in their profile/account page, which will securely log them out and redirect them to the login page or homepage.
-7. Chat Messaging: Users can send chat messages to other 4Mail users by composing a message, selecting recipients by username, and clicking the "send" button, with recipients receiving notifications of new chat messages.
-8. Account Deletion: Users can choose to delete their 4Mail account by clicking on the "delete account" button in their account settings page and confirming the deletion, which will remove all associated data and log them out.
+1. To-Do List: Users can create and manage their to-do list on the 4Mail website, adding tasks with details, due dates, and notes, and marking them as completed when finished. [Michael]
+2. News Articles API: Users can access external news articles through the 4Mail website, with the system gathering and organizing articles in a user-friendly format. [Michael]
+3. Account Creation: Users can easily create a new account on the 4Mail website by filling in a registration form with a username, email address, and password.  [Cedric]
+4. Email Sending: Users can send emails to one or multiple recipients by composing a message, selecting recipients by email address, and clicking the "send" button. [Cedric]
+5. Account Login/Logout: Users can securely log in to their 4Mail account by entering their username and password on the login page. Also, users can easily log out of their 4Mail account by clicking on the "Log Out" button in their profile/account page, which will securely log them out and redirect them to the login page or homepage. [Alex]
+6. Chat Messaging: Users can send chat messages to other 4Mail users by composing a message, selecting recipients by username, and clicking the "send" button, with recipients receiving notifications of new chat messages. [Van]
+7. Star Important Email: Users can mark important emails by clicking on the star icon next to the email subject or sender. This will add the email to a "Starred" folder for easy access and reference. [Van]
+8. Account Deletion: Users can choose to delete their 4Mail account by clicking on the "delete account" button in their account settings page and confirming the deletion, which will remove all associated data and log them out. [Alex]
 
 # Installation
 - pip install flask
@@ -58,15 +58,13 @@ The following are the main features of 4Mail:
 - Select one or more recipients by inputting their email addresses.
 - Click on the "send" button.
 - The system will check the validity of the email address(es) and send the message.
-5. Log In:
+5. Log In/Log Out:
 - Navigate to the 4Mail website.
-- Click on the "Log In" button and enter your login credentials (username and password).
+- To log in, click on the "Log In" button and enter your login credentials (username and password).
 - If successful, the system will redirect you to your account page.
-6. Log Out
-- Navigate to the 4Mail website.
 - To log out, click on the "Log Out" button in your account/your profile in the corner of the webpage.
 - The system will log you out and redirect you to the login page or 4Mail's homepage.
-7. Send a chat message:
+6. Send a chat message:
 - Navigate to the 4Mail website.
 - Log in to your account.
 - Click on the "chat" button.
@@ -76,6 +74,13 @@ The following are the main features of 4Mail:
 - The system will check the validity of the username(s) and send the message.
 - The recipients will receive a notification that they have received a new chat message.
 - The recipients can then log in to their accounts and click on the "chat" button to see and reply to the message(s).
+7. Star Important Email:
+- Log in to your 4Mail account.
+- Navigate to your inbox.
+- Find the email that you want to mark as important.
+- Click on the star icon next to the email.
+- The star will turn yellow to indicate that the email has been marked as important.
+- To remove the star, simply click on the star icon again, and it will turn back to gray.
 8. Delete Account:
 - Navigate to the 4Mail website.
 - Log in to your account.
