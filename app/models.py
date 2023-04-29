@@ -38,3 +38,11 @@ with myapp_obj.app_context():
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+
+class Email(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    sender = db.Column(db.String(120), nullable=False)
+    recipient = db.Column(db.String(120), nullable=False)
+    subject = db.Column(db.String(120), nullable=False)
+    body = db.Column(db.Text, nullable=False)
