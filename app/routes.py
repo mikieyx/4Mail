@@ -1,10 +1,11 @@
 from .forms import LoginForm, RegistrationForm, CheckPasswordForm, ResetPasswordRequestForm, ResetPasswordForm
-from app import myapp_obj, db
+from app import myapp_obj, db, mail
 from flask import render_template, redirect, flash, request, url_for
 from flask_login import current_user, login_user, logout_user, login_required
+from flask_mail import Message
 from .models import User
-from .email import send_password_reset_email
 import time
+
 
 @myapp_obj.route('/', methods=['GET', 'POST'])
 def home():
@@ -58,6 +59,18 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
+def send_reset_email(user):
+    token = user.get_reset_password_token()
+    msg = Message('Password Reset Request',
+                  sender='noreply@demo.com',
+                  recipients=[user.email])
+    msg.body = f'''To reset your password, visit the following link:
+{url_for('reset_password', token=token, _external=True)}
+
+If you did not make this request then simply ignore this email and no changes will be made.
+'''
+    mail.send(msg)
+
 @myapp_obj.route('/reset_password_request', methods=['GET', 'POST'])
 def reset_password_request():
     if current_user.is_authenticated:
@@ -68,7 +81,7 @@ def reset_password_request():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
-        if user: send_password_reset_email(user)
+        if user: send_reset_email(user)
 
         flash('In order to see the instructions to reset your password, check your email!')
 
