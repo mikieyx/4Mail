@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      {% if current_user.is_anonymous %}
+        <h3>Welcome to 4Mail!</h3>
+    </div>
+    
+    </div>
+      {% else %}
+        {% with messages = get_flashed_messages() %}  
+          {% if messages %}  
+              {% for message in messages %}  
+                <p>{{ message }}</p>  
+              {% endfor %}  
+          {% endif %}  
+        {% endwith %}  
+        
+        <h1>Welcome to 4Mail, {{ current_user.username }}!</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      </br></br></br>
+      {% if password_checker == True %}
+        <h3>The password you input is correct</h3>
+      {% elif password_checker == False %}
+        <h3>The password you input is not correct</h3>
+      {% endif %}
+    </div>
+  </div>
+      {% endif %}
+{% endblock %}
