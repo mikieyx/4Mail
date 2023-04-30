@@ -4,7 +4,6 @@ from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
 from flask_migrate import Migrate
 from flask_mail import Mail
-from config import Config
 import os
 
 myapp_obj = Flask(__name__)
