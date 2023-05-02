@@ -4,19 +4,19 @@
 <h1>Task Manager</h1>
 <form method="POST" action="{{ url_for('add_task') }}">
     <label for="title">Title:</label>
-    <input type="text" id="title" name="title" required>
-    <label for="due_date">Due date:</label>
-    <input type="date" id="due_date" name="due_date" required>
+    <input type="text" id="name" name="name" required>
+    <label for="dueDate">Due date:</label>
+    <input type="date" id="due_date" name="dueDate" required>
     <button type="submit">Add Task</button>
 </form>
 <table>
     <tbody>
         {% for task in tasks %}
         <tr>
-            <td>{{ task.title }}</td>
-            <td>{{ task.due_date }}</td>
+            <td>{{ task.name }}</td>
+            <td>{{ task.dueDate }}</td>
             <td>
-                <form method="POST" action="{{ url_for('delete_task', task_id=task.id) }}">
+                <form method="POST" action="{{ url_for('deleteTask', task_id=task.id) }}">
                     <button type="submit">Delete</button>
                 </form>
             </td>

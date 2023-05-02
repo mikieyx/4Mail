@@ -12,8 +12,6 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(32), nullable=False)
     password = db.Column(db.String(32), nullable=False)
     email = db.Column(db.String(100), nullable=False, unique=True)
-
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
     task = db.relationship('Task', backref='author', lazy='dynamic')
 
     def set_password(self, password):
@@ -21,7 +19,7 @@ class User(db.Model, UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
-    
+
     def get_reset_password_token(self, expires_in=600):
         return jwt.encode(
             {'reset_password': self.id, 'exp': time() + expires_in},
@@ -30,14 +28,14 @@ class User(db.Model, UserMixin):
     @staticmethod
     def verify_reset_password_token(token):
         try:
-            id = jwt.decode(token, myapp_obj.config['SECRET_KEY'], algorithms=['HS256'])['reset_password']
+            id = jwt.decode(token, myapp_obj.config['SECRET_KEY'], algorithms=[
+                            'HS256'])['reset_password']
         except:
             return
         return User.query.get(id)
-    
+
     def __repr__(self):
         return f'<User {self.id}: {self.username}>'
-
 
 
 class Email(db.Model):
@@ -49,7 +47,6 @@ class Email(db.Model):
 
     def __repr__(self):
         return f'<Task user {self.id}: {self.name}>'
-
 
 
 class Task(db.Model):

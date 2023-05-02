@@ -3,6 +3,7 @@ from app import myapp_obj, db, mail
 from flask import render_template, redirect, flash, request, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 from .models import User, Email, Task
+from datetime import datetime
 import time
 
 
@@ -173,9 +174,18 @@ def todo():
 @myapp_obj.route('/todo/add', methods=['POST'])
 @login_required
 def add_task():
-    title = request.form['title']
-    due_date = request.form['due_date']
-    task = Task(title=title, due_date=due_date, user_id=current_user.id)
+    name = request.form['name']
+    dueDate = request.form['dueDate']
+    dueDate = datetime.strptime(dueDate, '%Y-%m-%d').date()
+    task = Task(name=name, dueDate=dueDate, user_id=current_user.id)
     db.session.add(task)
+    db.session.commit()
+    return redirect(url_for('todo'))
+
+
+@myapp_obj.route('/todo/<int:task_id>', methods=['POST'])
+def deleteTask(task_id):
+    task = Task.query.get(task_id)
+    db.session.delete(task)
     db.session.commit()
     return redirect(url_for('todo'))
