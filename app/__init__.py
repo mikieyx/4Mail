@@ -17,6 +17,12 @@ myapp_obj.config.from_mapping(
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 )
 
+myapp_obj.config['MAIL_SERVER'] = 'smtp.gmail.com'
+myapp_obj.config['MAIL_PORT'] = 587
+myapp_obj.config['MAIL_USE_TLS'] = True
+myapp_obj.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
+myapp_obj.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
+
 db = SQLAlchemy(myapp_obj)
 
 migrate = Migrate(myapp_obj, db)
