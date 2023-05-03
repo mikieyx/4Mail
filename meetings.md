@@ -34,3 +34,15 @@ First meeting on 4/7/22, all subsequent meetings are on Tuesday at 9PM
 - Van will work on starring emails
 - Michael will work on the to do list, specifically creating and deleting
 - We plan on turning in the redo for milestone 1 either 4/25 or 4/26
+
+### 2023-05-02
+
+- Michael, Cedric, Van and Alex are all present
+- We all finished our first two requirements
+- Our plan is to finish our final requirement by this Friday 5/5/2023
+- Between 5/5/23 - 5/9/23 we will make the UI beautiful by using bootstrap and CSS
+- During the last stretch 5/9/23 - 5/12/23 we will work and finish the presentation
+- Michael will work on the news sections
+- Alex will work on adding comments and using bootstrap
+- Van will work on starring emails
+- Cedric will work on deleting emails and the inbox
