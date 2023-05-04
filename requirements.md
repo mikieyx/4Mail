@@ -2,7 +2,7 @@
 
 1. Create an account (register) [Cedric]
 2. Log in/Log out [Alex]
-3. Attach image/file to email [Alex]
+3. Delete User Account [Alex]
 4. Password reset [Alex]
 5. Connect to external News Articles API [Michael]
 6. Send an email [Cedric]
