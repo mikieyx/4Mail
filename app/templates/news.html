@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>News</title>
+</head>
+
+<body>
+    <h1>Latest News</h1>
+    <ul>
+        
+        <li>
+            <h2>{{ article.title }}</h2>
+            <p>By {{ article.author }}</p>
+            <img src="{{ url_for('static', filename=article.image) }}">
+        </li>
+       
+    </ul>
+</body>
+
+</html>

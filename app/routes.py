@@ -5,6 +5,9 @@ from flask_login import current_user, login_user, logout_user, login_required
 from .models import User, Email, Task
 from datetime import datetime
 import time
+import http.client
+import urllib.parse
+import json
 
 
 @myapp_obj.route('/', methods=['GET', 'POST'])
@@ -189,3 +192,29 @@ def deleteTask(task_id):
     db.session.delete(task)
     db.session.commit()
     return redirect(url_for('todo'))
+
+
+class Article:
+    def __init__(self, author, title, image):
+        self.author = author
+        self.title = title
+        self.image = image
+
+
+@myapp_obj.route('/news')
+def news():
+    conn = http.client.HTTPConnection('api.mediastack.com')
+    params = urllib.parse.urlencode({
+        'access_key': '3e6930adc8f22818321f218a9aca99ab',
+        'countries': "us",
+        'sort': 'published_desc',
+    })
+    conn.request('GET', '/v1/news?{}'.format(params))
+    res = conn.getresponse()
+    data = res.read()
+    data = json.loads(data)
+    author = data["data"][0]["author"]
+    title = data["data"][0]["title"]
+    img = data["data"][0]["image"]
+    article = Article(author, title, img)
+    return render_template('news.html', article=article)
