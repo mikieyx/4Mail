@@ -11,7 +11,7 @@
 9. Add a task to the do list [Michael]
 10. Cross something off the todo list [Michael]
 11. Star important emails [Van]
-12. Search Emails/Filter emails [Van]
+12. Delete chats [Van]
 
 ## Non Functional Requirements
 
