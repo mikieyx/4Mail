@@ -63,12 +63,9 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-
 def send_reset_email(user):
     token = user.get_reset_password_token()
-    msg = Message('Password Reset Request',
-                  sender='noreply@demo.com',
-                  recipients=[user.email])
+    msg = Message('Password Reset Request', sender='nguyenhoaianhhsgs@gmail.com', recipients=[user.email])
     msg.body = f'''To reset your password, visit the following link:
 {url_for('reset_password', token=token, _external=True)}
 
@@ -76,36 +73,32 @@ If you did not make this request then simply ignore this email and no changes wi
 '''
     mail.send(msg)
 
-
 @myapp_obj.route('/reset_password_request', methods=['GET', 'POST'])
 def reset_password_request():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
-
+        
     form = ResetPasswordRequestForm()
 
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
-        if user:
-            send_reset_email(user)
+        if user: send_reset_email(user)
 
         flash('In order to see the instructions to reset your password, check your email!')
 
         return redirect(url_for('login'))
-
+    
     return render_template('reset_password_request.html', title='Reset Password', form=form)
-
 
 @myapp_obj.route('/reset_password/<token>', methods=['GET', 'POST'])
 def reset_password(token):
     if current_user.is_authenticated:
         return redirect(url_for('home'))
-
+    
     user = User.verify_reset_password_token(token)
 
-    if not User:
-        return redirect(url_for('home'))
+    if not User: return redirect(url_for('home'))
 
     form = ResetPasswordForm()
 
@@ -117,9 +110,8 @@ def reset_password(token):
         flash('Now you can login to your account through your new password!')
 
         return redirect(url_for('login'))
-
+    
     return render_template('reset_password.html', form=form)
-
 
 @myapp_obj.route('/delete/<int:id>')
 def delete(id):
@@ -132,7 +124,6 @@ def delete(id):
         return redirect(url_for('home'))
     except:
         return 'There was something wrong when deleting your account!'
-
 
 @myapp_obj.route('/send_email', methods=['GET', 'POST'])
 def send_email():
