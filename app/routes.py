@@ -59,6 +59,13 @@ def register():
     return render_template('register.html', title='Register 4Mail', form=form)
 
 
+@myapp_obj.route('/inbox')
+def inbox():
+    #This filters the emails according to the current user's email address as a recipient
+    emails = Email.query.filter_by(recipient=current_user.email).all()
+    return render_template('inbox.html', emails=emails)
+
+
 @myapp_obj.route('/logout')
 def logout():
     logout_user()
