@@ -6,6 +6,9 @@ from flask_mail import Message
 from .models import User, Email, Task
 from datetime import datetime
 import time
+import http.client
+import urllib.parse
+import json
 
 
 @myapp_obj.route('/', methods=['GET', 'POST'])
@@ -188,3 +191,38 @@ def deleteTask(task_id):
     db.session.delete(task)
     db.session.commit()
     return redirect(url_for('todo'))
+
+
+class Article:
+    def __init__(self, author, title, image, url):
+        self.author = author
+        self.title = title
+        self.image = image
+        self.url = url
+
+
+@myapp_obj.route('/news')
+def news():
+    conn = http.client.HTTPConnection('api.mediastack.com')
+    params = urllib.parse.urlencode({
+        'access_key': '3e6930adc8f22818321f218a9aca99ab',
+        'countries': "us",
+        'sort': 'published_desc',
+    })
+    conn.request('GET', '/v1/news?{}'.format(params))
+    res = conn.getresponse()
+    data = res.read()
+    data = json.loads(data)
+    articles = []
+    counter = 0
+    while (len(articles) < 4):
+        if data["data"][counter]["image"] is not None:
+            author = data["data"][counter]["author"]
+            title = data["data"][counter]["title"]
+            img = data["data"][counter]["image"]
+            url = data["data"][counter]["url"]
+            article = Article(author, title, img, url)
+            articles.append(article)
+        counter += 1
+
+    return render_template('news.html', articles=articles)
