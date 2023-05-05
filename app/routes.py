@@ -195,10 +195,11 @@ def deleteTask(task_id):
 
 
 class Article:
-    def __init__(self, author, title, image):
+    def __init__(self, author, title, image, url):
         self.author = author
         self.title = title
         self.image = image
+        self.url = url
 
 
 @myapp_obj.route('/news')
@@ -213,8 +214,16 @@ def news():
     res = conn.getresponse()
     data = res.read()
     data = json.loads(data)
-    author = data["data"][0]["author"]
-    title = data["data"][0]["title"]
-    img = data["data"][0]["image"]
-    article = Article(author, title, img)
-    return render_template('news.html', article=article)
+    articles = []
+    counter = 0
+    while (len(articles) < 4):
+        if data["data"][counter]["image"] is not None:
+            author = data["data"][counter]["author"]
+            title = data["data"][counter]["title"]
+            img = data["data"][counter]["image"]
+            url = data["data"][counter]["url"]
+            article = Article(author, title, img, url)
+            articles.append(article)
+        counter += 1
+
+    return render_template('news.html', articles=articles)
