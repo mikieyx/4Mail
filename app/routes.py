@@ -79,8 +79,22 @@ def send_email():
         
     return render_template('Email.html')
 
+@myapp_obj.route('/delete_account', methods=['GET', 'POST'])
+def delete_account():
+    if request.method == 'POST':
+        email = request.form['email']
+        user = User.query.filter_by(email=email).first()
 
+        if user:
+            db.session.delete(user)
+            db.session.commit()
+            message = 'Your account has been deleted.'
+        else:
+            message = 'Account not found.'
 
+        return render_template('deleteAcc.html', message=message)
+
+    return render_template('deleteAcc.html')
     
 
 @myapp_obj.route("/chat", methods=['GET', 'POST'])
