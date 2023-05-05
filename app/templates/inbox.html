@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Inbox</title>
+  </head>
+  <body>
+    <h1>Inbox</h1>
+    {% for email in emails %}
+    <p>From: {{ email.sender }}, Subject: {{ email.sender }}, Message: {{ email.body }}</p>
+    {% endfor %}
+  </body>
+</html>

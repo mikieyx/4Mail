@@ -2,7 +2,7 @@
 
 1. Create an account (register) [Cedric]
 2. Log in/Log out [Alex]
-3. Attach image/file to email [Alex]
+3. Delete User Account [Alex]
 4. Password reset [Alex]
 5. Connect to external News Articles API [Michael]
 6. Send an email [Cedric]
@@ -11,7 +11,7 @@
 9. Add a task to the do list [Michael]
 10. Cross something off the todo list [Michael]
 11. Star important emails [Van]
-12. Search Emails/Filter emails [Van]
+12. Delete chats [Van]
 
 ## Non Functional Requirements
 
