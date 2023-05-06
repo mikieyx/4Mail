@@ -160,6 +160,9 @@ def chat():
     if form.validate_on_submit():
         recipient = form.recipient.data
         message = form.message.data
+        chat = Chat(sender=current_user.username, recipient=recipient, message=message)
+        db.session.add(chat)
+        db.session.commit()
         # TODO: Send the chat message to the recipient
         flash(f'Message sent to {recipient}: {message}')
         return redirect(url_for('chat'))

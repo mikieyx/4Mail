@@ -68,6 +68,17 @@ class Task(db.Model):
 
     def __repr__(self):
         return f'<Task user {self.id}: {self.name}>'
+    
+
+class Chat(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    sender = db.Column(db.String(50), nullable=False)
+    recipient = db.Column(db.String(50), nullable=False)
+    message = db.Column(db.Text, nullable=False)
+    timestamp = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+    def __repr__(self):
+        return f"Chat(sender='{self.sender}', recipient='{self.recipient}', message='{self.message}', timestamp='{self.timestamp}')"
 
 
 with myapp_obj.app_context():
