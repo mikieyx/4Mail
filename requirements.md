@@ -159,6 +159,8 @@
 
 - **Actors:** The users, the recipient (and 4Mail)
 
+- **Pre-condition:** The users have Internet access, and they already register successfully the accounts for 4Mail.
+
 - **Primary Sequence:**
 
   1. The user navigates to the 4Mail website and logs in to their account.
@@ -173,10 +175,9 @@
 
 - **Alternate Sequence:**
 
-  1. If the recipient is not registered on 4Mail, the user cannot send a chat message to them.
-  2. If the user enters an incorrect username or email address, the chat message will not be sent to the intended recipient.
-  3. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.
-  4. If the user encounters an error while typing the message, such as exceeding the character limit, the user will be prompted with an error message.
+  1. If the user enters an incorrect username or email address, the chat message will not be sent to the intended recipient.
+  2. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.
+  3. If the user encounters an error while typing the message, such as exceeding the character limit, the user will be prompted with an error message.
 
 #8. Receive a Chat from Someone
 
@@ -184,22 +185,24 @@
 
 - **Actors:**  The user, the sender (and 4Mail)
 
+- **Pre-condition:** The users have Internet access, and they already register successfully the accounts for 4Mail.
+
 - **Primary Sequence:**
-1. The user logs in to their 4Mail account.
-2. The user clicks on the chat icon or button, which is usually located in the navigation menu or the top bar.
-3. The chat window opens up, and the user sees a new message notification from the sender.
-4. The user clicks on the notification to open the chat message.
-5. The user reads the message from the sender.
-6. The user can respond to the message by typing a reply in the message field.
-7. The user can format the message using text formatting tools such as bold, italic, or underline, and can also attach files or images if necessary.
-8. The user clicks the send button to send the reply to the sender.
-9. If successful, the reply is sent to the sender and appears in the chat window.
+
+  1. The user logs in to their 4Mail account.
+  2. The user clicks on the chat icon or button, which is usually located in the navigation menu or the top bar.
+  3. The chat window opens up, and the user sees a new message notification from the sender.
+  4. The user clicks on the notification to open the chat message.
+  5. The user reads the message from the sender.
+  6. The user can respond to the message by typing a reply in the message field.
+  7. The user can format the message using text formatting tools such as bold, italic, or underline, and can also attach files or images if necessary.
+  8. The user clicks the send button to send the reply to the sender.
+  9. If successful, the reply is sent to the sender and appears in the chat window.
 
 - **Post-conditions:** The sender receives the reply message and can respond to it. The chat message and reply are saved in the chat history between the sender and the recipient.
 
 - **Alternate Sequence:**
 
-1. If the sender is not registered on 4Mail, the user cannot receive a chat message from them.
-2. If the sender enters an incorrect username or email address, the chat message will not be received by the intended recipient.
-3. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.
-4. If the user encounters an error while typing the reply message, such as exceeding the character limit, the user will be prompted with an error message.
+  1. If the sender enters an incorrect username or email address, the chat message will not be received by the intended recipient.
+  2. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.
+  3. If the user encounters an error while typing the reply message, such as exceeding the character limit, the user will be prompted with an error message.
