@@ -39,8 +39,6 @@ class User(db.Model, UserMixin):
         return f'<User {self.id}: {self.username}>'
 
 # TODO Delete this
-
-
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(256))
@@ -63,8 +61,6 @@ class Email(db.Model):
         return f'<Task user {self.id}: {self.name}>'
 
 # Adds a one to many relationship with the user
-
-
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(256))
