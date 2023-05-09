@@ -1,8 +1,7 @@
-from .forms import LoginForm, RegistrationForm, CheckPasswordForm, ResetPasswordRequestForm, ResetPasswordForm, ChatForm
+from .forms import LoginForm, RegistrationForm, CheckPasswordForm, ResetPasswordRequestForm, ResetPasswordForm
 from app import myapp_obj, db, mail
 from flask import render_template, redirect, flash, request, url_for
 from flask_login import current_user, login_user, logout_user, login_required
-from flask_mail import Message
 from .models import User, Email, Task
 from datetime import datetime
 import time
@@ -62,21 +61,17 @@ def register():
     return render_template('register.html', title='Register 4Mail', form=form)
 
 
-@myapp_obj.route('/inbox')
-def inbox():
-    #This filters the emails according to the current user's email address as a recipient
-    emails = Email.query.filter_by(recipient=current_user.email).all()
-    return render_template('inbox.html', emails=emails)
-
-
 @myapp_obj.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('login'))
 
+
 def send_reset_email(user):
     token = user.get_reset_password_token()
-    msg = Message('Password Reset Request', sender='nguyenhoaianhhsgs@gmail.com', recipients=[user.email])
+    msg = Message('Password Reset Request',
+                  sender='noreply@demo.com',
+                  recipients=[user.email])
     msg.body = f'''To reset your password, visit the following link:
 {url_for('reset_password', token=token, _external=True)}
 
@@ -84,32 +79,36 @@ If you did not make this request then simply ignore this email and no changes wi
 '''
     mail.send(msg)
 
+
 @myapp_obj.route('/reset_password_request', methods=['GET', 'POST'])
 def reset_password_request():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
-        
+
     form = ResetPasswordRequestForm()
 
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
-        if user: send_reset_email(user)
+        if user:
+            send_reset_email(user)
 
         flash('In order to see the instructions to reset your password, check your email!')
 
         return redirect(url_for('login'))
-    
+
     return render_template('reset_password_request.html', title='Reset Password', form=form)
+
 
 @myapp_obj.route('/reset_password/<token>', methods=['GET', 'POST'])
 def reset_password(token):
     if current_user.is_authenticated:
         return redirect(url_for('home'))
-    
+
     user = User.verify_reset_password_token(token)
 
-    if not User: return redirect(url_for('home'))
+    if not User:
+        return redirect(url_for('home'))
 
     form = ResetPasswordForm()
 
@@ -121,8 +120,9 @@ def reset_password(token):
         flash('Now you can login to your account through your new password!')
 
         return redirect(url_for('login'))
-    
+
     return render_template('reset_password.html', form=form)
+
 
 @myapp_obj.route('/delete/<int:id>')
 def delete(id):
@@ -135,6 +135,7 @@ def delete(id):
         return redirect(url_for('home'))
     except:
         return 'There was something wrong when deleting your account!'
+
 
 @myapp_obj.route('/send_email', methods=['GET', 'POST'])
 def send_email():
@@ -165,12 +166,19 @@ def chat():
         return redirect(url_for('chat'))
     return render_template('chat.html', form=form)
 
+# Todo page needs to gather all the tasks that were created by the current user
+# from the data base and pass it into the html
+
 
 @myapp_obj.route("/todo")
 @login_required
 def todo():
     tasks = Task.query.filter_by(user_id=current_user.id).all()
     return render_template('todo.html', tasks=tasks)
+
+# The route to add a task to the database. Gather the necessary information from filling out the form
+# and add it to the database. After adding it to the database we redirect to the todo page so that
+# it will show the updated task list
 
 
 @myapp_obj.route('/todo/add', methods=['POST'])
@@ -184,6 +192,9 @@ def add_task():
     db.session.commit()
     return redirect(url_for('todo'))
 
+# The route to delete the task. After deleting, we redirect to the todo page to
+# reflect the updated todo list
+
 
 @myapp_obj.route('/todo/<int:task_id>', methods=['POST'])
 def deleteTask(task_id):
@@ -193,6 +204,7 @@ def deleteTask(task_id):
     return redirect(url_for('todo'))
 
 
+# Create a quick article object to better store the articles.
 class Article:
     def __init__(self, author, title, image, url):
         self.author = author
@@ -203,6 +215,9 @@ class Article:
 
 @myapp_obj.route('/news')
 def news():
+    # To display news, the application needs to make an api request to mediastack api
+    # I have to establish an http connection and get the correct parameters
+    # Then I will make the get request to the api
     conn = http.client.HTTPConnection('api.mediastack.com')
     params = urllib.parse.urlencode({
         'access_key': '3e6930adc8f22818321f218a9aca99ab',
@@ -210,9 +225,15 @@ def news():
         'sort': 'published_desc',
     })
     conn.request('GET', '/v1/news?{}'.format(params))
+
+    # After making the request, I format the response in a more manageable way
     res = conn.getresponse()
     data = res.read()
     data = json.loads(data)
+
+    # Now that I have a json format of the response, I will parse through the json
+    # object and gather all the articles that have an image  and store it in the arrray
+    # I have initiated a counter so that we only get 4 articles max
     articles = []
     counter = 0
     while (len(articles) < 4):
@@ -225,4 +246,5 @@ def news():
             articles.append(article)
         counter += 1
 
+    # After getting the articles, I pass in the list of articles to the html file
     return render_template('news.html', articles=articles)

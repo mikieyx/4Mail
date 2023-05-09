@@ -29,13 +29,17 @@ class User(db.Model, UserMixin):
     @staticmethod
     def verify_reset_password_token(token):
         try:
-            id = jwt.decode(token, myapp_obj.config['SECRET_KEY'], algorithms=['HS256'])['reset_password']
+            id = jwt.decode(token, myapp_obj.config['SECRET_KEY'], algorithms=[
+                            'HS256'])['reset_password']
         except:
             return
         return User.query.get(id)
 
     def __repr__(self):
         return f'<User {self.id}: {self.username}>'
+
+# TODO Delete this
+
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -57,6 +61,8 @@ class Email(db.Model):
 
     def __repr__(self):
         return f'<Task user {self.id}: {self.name}>'
+
+# Adds a one to many relationship with the user
 
 
 class Task(db.Model):
