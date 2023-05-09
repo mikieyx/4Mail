@@ -168,19 +168,16 @@ def chat():
 
 # Todo page needs to gather all the tasks that were created by the current user
 # from the data base and pass it into the html
-
-
 @myapp_obj.route("/todo")
 @login_required
 def todo():
     tasks = Task.query.filter_by(user_id=current_user.id).all()
     return render_template('todo.html', tasks=tasks)
 
+
 # The route to add a task to the database. Gather the necessary information from filling out the form
 # and add it to the database. After adding it to the database we redirect to the todo page so that
 # it will show the updated task list
-
-
 @myapp_obj.route('/todo/add', methods=['POST'])
 @login_required
 def add_task():
@@ -194,8 +191,6 @@ def add_task():
 
 # The route to delete the task. After deleting, we redirect to the todo page to
 # reflect the updated todo list
-
-
 @myapp_obj.route('/todo/<int:task_id>', methods=['POST'])
 def deleteTask(task_id):
     task = Task.query.get(task_id)
