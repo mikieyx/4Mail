@@ -180,7 +180,6 @@
   3. If the user encounters an error while typing the message, such as exceeding the character limit, the user will be prompted with an error message.
 
 #8. Receive a Chat from Someone
-
 - **Summary:** Users can receive a chat message from a sender who is also registered on 4Mail.
 
 - **Actors:**  The user, the sender (and 4Mail)
