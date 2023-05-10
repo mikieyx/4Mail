@@ -46,3 +46,14 @@ First meeting on 4/7/22, all subsequent meetings are on Tuesday at 9PM
 - Alex will work on adding comments and using bootstrap
 - Van will work on starring emails
 - Cedric will work on deleting emails and the inbox
+
+### 2023-05-09
+
+- Michael, Cedric, Van and Alex are all present
+- Michael, Cedric, Alex are finished with their requirements
+- Van will work with Cedric to finish the last requirement starring important emails
+- Michael will work on virutal environment and test cases
+- Cedric and Van will on using bootstrap to make their sections more nicer
+- Alex will work on commenting and documenting the code
+- Everyone will start working on the presentation
+- We will meet at 9:15 PM on Thursday 5/11/23
