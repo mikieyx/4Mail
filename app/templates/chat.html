@@ -1,21 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>4Mail - Chat</title>
-</head>
-<body>
-	<h1>Chat</h1>
-	<form method="post">
-		<label for="to">To:</label>
-		<input type="text" id="to" name="to" required><br>
+{% extends 'chat_base.html' %} {% block content %}
 
-		<label for="message">Message:</label>
-		<textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
-
-		<label for="attachment">Attachment:</label>
-		<input type="file" id="attachment" name="attachment"><br>
-
-		<input type="submit" value="Send">
-	</form>
-</body>
-</html>
+<form method="post" class="buttons">
+  <h3>Welcome To Chat Room!</h3>
+  <div>
+    <label>Name:</label>
+    <input
+      type="text"
+      placeholder="Enter your name!"
+      name="name"
+      value="{{name}}"
+    />
+  </div>
+  <div class="join">
+    <input type="text" placeholder="Enter Access Code" name="code" value="{{code}}" />
+    <button type="submit" name="join">Join a Room</button>
+  </div>
+  <button type="submit" name="create" class="create-btn">Create a Room</button>
+  {% if error %}
+  <ul>
+    <li>{{error}}</li>
+  </ul>
+  {% endif %}
+</form>
+{% endblock %}

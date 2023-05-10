@@ -1,6 +1,12 @@
 from .forms import LoginForm, RegistrationForm, CheckPasswordForm, ResetPasswordRequestForm, ResetPasswordForm, ChatForm
 from app import myapp_obj, db, mail
 from flask import render_template, redirect, flash, request, url_for
+
+from flask import Flask, render_template, request, session, redirect, url_for
+from flask_socketio import join_room, leave_room, send, SocketIO
+import random
+from string import ascii_uppercase
+
 from flask_mail import Message
 from flask_login import current_user, login_user, logout_user, login_required
 from .models import User, Email, Task
@@ -205,16 +211,6 @@ def send_email():
     return render_template('Email.html')
 
 
-@myapp_obj.route("/chat", methods=['GET', 'POST'])
-def chat():
-    form = ChatForm()
-    if form.validate_on_submit():
-        recipient = form.recipient.data
-        message = form.message.data
-        # TODO: Send the chat message to the recipient
-        flash(f'Message sent to {recipient}: {message}')
-        return redirect(url_for('chat'))
-    return render_template('chat.html', form=form)
 
 # Todo page needs to gather all the tasks that were created by the current user
 # from the data base and pass it into the html
@@ -293,3 +289,99 @@ def news():
 
     # After getting the articles, I pass in the list of articles to the html file
     return render_template('news.html', articles=articles)
+
+
+rooms = {}
+def generate_unique_code(length):
+    while True:
+        code = ""
+        for _ in range(length):
+            code += random.choice(ascii_uppercase)
+        
+        if code not in rooms:
+            break
+    
+    return code
+
+
+
+@myapp_obj.route("/chat", methods=["POST", "GET"])
+def chat():
+    session.clear()
+    if request.method == "POST":
+        name = request.form.get("name")
+        code = request.form.get("code")
+        join = request.form.get("join", False)
+        create = request.form.get("create", False)
+
+        if not name:
+            return render_template("chat.html", error="Please enter a name.", code=code, name=name)
+
+        if join != False and not code:
+            return render_template("chat.html", error="Please enter a room code.", code=code, name=name)
+        
+        room = code
+        if create != False:
+            room = generate_unique_code(4)
+            rooms[room] = {"members": 0, "messages": []}
+        elif code not in rooms:
+            return render_template("chat.html", error="Room does not exist.", code=code, name=name)
+        
+        session["room"] = room
+        session["name"] = name
+        return redirect(url_for("room"))
+
+    return render_template("chat.html")
+
+@myapp_obj.route("/room")
+def room():
+    room = session.get("room")
+    if room is None or session.get("name") is None or room not in rooms:
+        return redirect(url_for("chat"))
+
+    return render_template("room.html", code=room, messages=rooms[room]["messages"])
+
+socketio = SocketIO(myapp_obj)
+
+@socketio.on("message")
+def message(data):
+    room = session.get("room")
+    if room not in rooms:
+        return 
+    
+    content = {
+        "name": session.get("name"),
+        "message": data["data"]
+    }
+    send(content, to=room)
+    rooms[room]["messages"].append(content)
+    print(f"{session.get('name')} said: {data['data']}")
+
+@socketio.on("connect")
+def connect(auth):
+    room = session.get("room")
+    name = session.get("name")
+    if not room or not name:
+        return
+    if room not in rooms:
+        leave_room(room)
+        return
+    
+    join_room(room)
+    send({"name": name, "message": "has entered the room"}, to=room)
+    rooms[room]["members"] += 1
+    print(f"{name} joined room {room}")
+
+@socketio.on("disconnect")
+def disconnect():
+    room = session.get("room")
+    name = session.get("name")
+    leave_room(room)
+
+    if room in rooms:
+        rooms[room]["members"] -= 1
+        if rooms[room]["members"] <= 0:
+            del rooms[room]
+    
+    send({"name": name, "message": "has left the room"}, to=room)
+    print(f"{name} has left the room {room}")
