@@ -9,8 +9,8 @@ The following are the main features of 4Mail:
 3. Account Creation: Users can easily create a new account on the 4Mail website by filling in a registration form with a username, email address, and password. [Cedric]
 4. Email Sending: Users can send emails to one or multiple recipients by composing a message, selecting recipients by email address, and clicking the "send" button. [Cedric]
 5. Account Login/Logout: Users can securely log in to their 4Mail account by entering their username and password on the login page. Also, users can easily log out of their 4Mail account by clicking on the "Log Out" button in their profile/account page, which will securely log them out and redirect them to the login page or homepage. [Alex]
-6. Chat Messaging: Users can send chat messages to other 4Mail users by composing a message, selecting recipients by username, and clicking the "send" button, with recipients receiving notifications of new chat messages. [Van]
-7. Star Important Email: Users can mark important emails by clicking on the star icon next to the email subject or sender. This will add the email to a "Starred" folder for easy access and reference. [Van]
+6. Send Chat: Users can send chat messages to other 4Mail users by composing a message, selecting recipients by username, and clicking the "send" button, with recipients receiving notifications of new chat messages. [Van]
+7. Receive Chat: Users can receive chat messages from other 4Mail users by viewing incoming messages in their chat inbox. When a user receives a new chat message, they will receive a notification to alert them to the new message. [Van]
 8. Account Deletion: Users can choose to delete their 4Mail account by clicking on the "delete account" button in their account settings page and confirming the deletion, which will remove all associated data and log them out. [Alex]
 
 # Installation
@@ -90,14 +90,12 @@ The following are the main features of 4Mail:
 - The recipients will receive a notification that they have received a new chat message.
 - The recipients can then log in to their accounts and click on the "chat" button to see and reply to the message(s).
 
-7. Star Important Email:
+7. Receive a chat message:
 
 - Log in to your 4Mail account.
-- Navigate to your inbox.
-- Find the email that you want to mark as important.
-- Click on the star icon next to the email.
-- The star will turn yellow to indicate that the email has been marked as important.
-- To remove the star, simply click on the star icon again, and it will turn back to gray.
+- Go to the chat section of your account.
+- Wait for a new chat message to appear in the chat window.
+- Once a new message appears, click on the chat message to open and read it.
 
 8. Delete Account:
 

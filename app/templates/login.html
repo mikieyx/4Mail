@@ -1,8 +1,10 @@
+<!-- This code extends the base HTML file and contains the login form for 4Mail -->
 {% extends "base.html"%}
 
 {% block content %}
 <h1 align="center">Log In - 4Mail</h1>
 
+<!-- Login form -->
 <div class="login-form-group">
    <form action="" method="POST" novalidate>
       {{form.hidden_tag()}} 
@@ -19,6 +21,7 @@
    </form>
 </div>
 
+<!-- Create account if haven't registered and reset password links -->
 <div class="row">
    <div class="col-md-4 offset-md-4 col-xs-8 offset-xs-2">
       <div class="createAccount">

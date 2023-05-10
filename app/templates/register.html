@@ -2,17 +2,20 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
+  <!-- Register form header -->
   <div class="row">
     <div class="col-md-4 offset-md-4 col-xs-8 offset-xs-2">
       <h1> <center> Register - 4Mail </center> </h1>
     </div>
   </div>
 
+  <!-- Register form body -->
   <div class="row">
     <div class="col-md-4 offset-md-4 col-xs-8 offset-xs-2">
         <div class="register-form-group">
             <form action="" method="POST" novalidate>
-               {{form.hidden_tag()}} 
+              <!-- Hidden form fields --> 
+              {{form.hidden_tag()}} 
                   <p align="center"> {{form.username.label}} <br>
                      {{form.username(size=32)}}</p>
 
@@ -31,6 +34,7 @@
     </div>
   </div>
 
+  <!-- Already have an account? -->
   <div class="row">
     <div class="col-md-4 offset-md-4 col-xs-8 offset-xs-2">
       <p align="center">Already have an account? <a href="{{ url_for('login') }}">Click to login!</a>
