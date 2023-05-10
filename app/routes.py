@@ -1,11 +1,14 @@
 from .forms import LoginForm, RegistrationForm, CheckPasswordForm, ResetPasswordRequestForm, ResetPasswordForm, ChatForm
 from app import myapp_obj, db, mail
 from flask import render_template, redirect, flash, request, url_for
-from flask_login import current_user, login_user, logout_user, login_required
 from flask_mail import Message
+from flask_login import current_user, login_user, logout_user, login_required
 from .models import User, Email, Task
 from datetime import datetime
 import time
+import http.client
+import urllib.parse
+import json
 
 
 @myapp_obj.route('/', methods=['GET', 'POST'])
@@ -183,6 +186,7 @@ def delete(id):
         # If there was 1 error while deleting the user's account, display 1 error message:
         return 'There was something wrong when deleting your account!'
 
+
 @myapp_obj.route('/send_email', methods=['GET', 'POST'])
 def send_email():
     if request.method == 'POST':
@@ -212,7 +216,8 @@ def chat():
         return redirect(url_for('chat'))
     return render_template('chat.html', form=form)
 
-
+# Todo page needs to gather all the tasks that were created by the current user
+# from the data base and pass it into the html
 @myapp_obj.route("/todo")
 @login_required
 def todo():
@@ -220,6 +225,9 @@ def todo():
     return render_template('todo.html', tasks=tasks)
 
 
+# The route to add a task to the database. Gather the necessary information from filling out the form
+# and add it to the database. After adding it to the database we redirect to the todo page so that
+# it will show the updated task list
 @myapp_obj.route('/todo/add', methods=['POST'])
 @login_required
 def add_task():
@@ -231,10 +239,57 @@ def add_task():
     db.session.commit()
     return redirect(url_for('todo'))
 
-
+# The route to delete the task. After deleting, we redirect to the todo page to
+# reflect the updated todo list
 @myapp_obj.route('/todo/<int:task_id>', methods=['POST'])
 def deleteTask(task_id):
     task = Task.query.get(task_id)
     db.session.delete(task)
     db.session.commit()
     return redirect(url_for('todo'))
+
+
+# Create a quick article object to better store the articles.
+class Article:
+    def __init__(self, author, title, image, url):
+        self.author = author
+        self.title = title
+        self.image = image
+        self.url = url
+
+
+@myapp_obj.route('/news')
+def news():
+    # To display news, the application needs to make an api request to mediastack api
+    # I have to establish an http connection and get the correct parameters
+    # Then I will make the get request to the api
+    conn = http.client.HTTPConnection('api.mediastack.com')
+    params = urllib.parse.urlencode({
+        'access_key': '3e6930adc8f22818321f218a9aca99ab',
+        'countries': "us",
+        'sort': 'published_desc',
+    })
+    conn.request('GET', '/v1/news?{}'.format(params))
+
+    # After making the request, I format the response in a more manageable way
+    res = conn.getresponse()
+    data = res.read()
+    data = json.loads(data)
+
+    # Now that I have a json format of the response, I will parse through the json
+    # object and gather all the articles that have an image  and store it in the arrray
+    # I have initiated a counter so that we only get 4 articles max
+    articles = []
+    counter = 0
+    while (len(articles) < 4):
+        if data["data"][counter]["image"] is not None:
+            author = data["data"][counter]["author"]
+            title = data["data"][counter]["title"]
+            img = data["data"][counter]["image"]
+            url = data["data"][counter]["url"]
+            article = Article(author, title, img, url)
+            articles.append(article)
+        counter += 1
+
+    # After getting the articles, I pass in the list of articles to the html file
+    return render_template('news.html', articles=articles)

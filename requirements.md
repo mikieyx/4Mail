@@ -7,11 +7,11 @@
 5. Connect to external News Articles API [Michael]
 6. Send an email [Cedric]
 7. Delete emails [Cedric]
-8. Send a chat to someone [Van]
-9. Add a task to the do list [Michael]
-10. Cross something off the todo list [Michael]
-11. Star important emails [Van]
-12. Delete chats [Van]
+8. Add a task to the do list [Michael]
+9. Cross something off the todo list [Michael]
+10. Send a chat to someone [Van]
+11. Receive a chat from someone [Van]
+12. Add attached image to send chat [Van]
 
 ## Non Functional Requirements
 
@@ -159,6 +159,8 @@
 
 - **Actors:** The users, the recipient (and 4Mail)
 
+- **Pre-condition:** The users have Internet access, and they already register successfully the accounts for 4Mail.
+
 - **Primary Sequence:**
 
   1. The user navigates to the 4Mail website and logs in to their account.
@@ -173,32 +175,33 @@
 
 - **Alternate Sequence:**
 
-  1. If the recipient is not registered on 4Mail, the user cannot send a chat message to them.
-  2. If the user enters an incorrect username or email address, the chat message will not be sent to the intended recipient.
-  3. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.
-  4. If the user encounters an error while typing the message, such as exceeding the character limit, the user will be prompted with an error message.
+  1. If the user enters an incorrect username or email address, the chat message will not be sent to the intended recipient.
+  2. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.
+  3. If the user encounters an error while typing the message, such as exceeding the character limit, the user will be prompted with an error message.
 
-#8. Star Important Emails:
-- **Summary:** Users can mark an email as "starred" to indicate that it is important or needs to be saved for later.
+#8. Receive a Chat from Someone
+- **Summary:** Users can receive a chat message from a sender who is also registered on 4Mail.
 
-- **Actors:** The users (and 4Mail)
+- **Actors:**  The user, the sender (and 4Mail)
+
+- **Pre-condition:** The users have Internet access, and they already register successfully the accounts for 4Mail.
 
 - **Primary Sequence:**
 
-  1. The user navigates to their inbox and selects an email they want to mark as "starred".
-  2. The user clicks on the star icon next to the email, which is usually located in the email header or preview pane.
-  3. The star icon changes to indicate that the email has been marked as "starred".
-  4. The user can also view all their starred emails by clicking on the "Starred" folder in their inbox or by using the search function to search for starred emails.
-  5. If the user wants to remove the "starred" status from the email, they can click on the star icon again to deselect it.
+  1. The user logs in to their 4Mail account.
+  2. The user clicks on the chat icon or button, which is usually located in the navigation menu or the top bar.
+  3. The chat window opens up, and the user sees a new message notification from the sender.
+  4. The user clicks on the notification to open the chat message.
+  5. The user reads the message from the sender.
+  6. The user can respond to the message by typing a reply in the message field.
+  7. The user can format the message using text formatting tools such as bold, italic, or underline, and can also attach files or images if necessary.
+  8. The user clicks the send button to send the reply to the sender.
+  9. If successful, the reply is sent to the sender and appears in the chat window.
 
-- **Primary Post-conditions:** The email is saved as "starred" and can be accessed later in the "Starred" folder. The user can easily find and retrieve important emails from the "Starred" folder.
+- **Post-conditions:** The sender receives the reply message and can respond to it. The chat message and reply are saved in the chat history between the sender and the recipient.
 
 - **Alternate Sequence:**
 
-  1. If the user accidentally clicks on the star icon or changes their mind, they can click on the star icon again to remove the "starred" status from the email.
-  2. If there is a connection issue or a problem with the 4Mail server, the email may not be marked as "starred" successfully.
-  3. If the user encounters an error while marking the email as "starred", such as the
-  4. The system displays the matching emails based on the search criteria or filter options.
-  5. The user can select the email to view its content.
-
-- **Post-conditions:** The matching emails are displayed, and the user can view their content.
+  1. If the sender enters an incorrect username or email address, the chat message will not be received by the intended recipient.
+  2. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.
+  3. If the user encounters an error while typing the reply message, such as exceeding the character limit, the user will be prompted with an error message.
