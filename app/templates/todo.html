@@ -1,27 +1,50 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1> <center>Task Manager</center> </h1>
-<form method="POST" action="{{ url_for('add_task') }}">
-    <label for="title"> Title: </label>
-    <input type="text" id="name" name="name" required>
-    <label for="dueDate"> Due Date: </label>
-    <input type="date" id="due_date" name="dueDate" required>
-    <button type="submit">Add Task</button>
-</form>
-<table>
-    <tbody>
-        {% for task in tasks %}
-        <tr>
-            <td>{{ task.name }}</td>
-            <td>{{ task.dueDate }}</td>
-            <td>
-                <form method="POST" action="{{ url_for('deleteTask', task_id=task.id) }}">
-                    <button type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="text-center">Task Manager</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <form method="POST" action="{{ url_for('add_task') }}">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="dueDate">Due Date:</label>
+                <input type="date" class="form-control" id="due_date" name="dueDate" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Task</button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Due Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <td>{{ task.name }}</td>
+                    <td>{{ task.dueDate }}</td>
+                    <td>
+                        <form method="POST" action="{{ url_for('deleteTask', task_id=task.id) }}">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
