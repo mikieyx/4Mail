@@ -1,12 +1,10 @@
 from .forms import LoginForm, RegistrationForm, CheckPasswordForm, ResetPasswordRequestForm, ResetPasswordForm, ChatForm
 from app import myapp_obj, db, mail
 from flask import render_template, redirect, flash, request, url_for
-
 from flask import Flask, render_template, request, session, redirect, url_for
 from flask_socketio import join_room, leave_room, send, SocketIO
 import random
 from string import ascii_uppercase
-
 from flask_mail import Message
 from flask_login import current_user, login_user, logout_user, login_required
 from .models import User, Email, Task
@@ -290,36 +288,40 @@ def news():
     # After getting the articles, I pass in the list of articles to the html file
     return render_template('news.html', articles=articles)
 
-
+# A dictionary to store the rooms and their members and messages
 rooms = {}
+
+# A function to generate a unique room code of given length
 def generate_unique_code(length):
     while True:
         code = ""
+        # Generate a random code using uppercase letters
         for _ in range(length):
-            code += random.choice(ascii_uppercase)
-        
+            code += random.choice(ascii_uppercase)        
+        # If the code is not already in use as a room code, return it
         if code not in rooms:
-            break
-    
+            break   
     return code
 
-
-
+# Route for the chat page
 @myapp_obj.route("/chat", methods=["POST", "GET"])
 def chat():
-    session.clear()
     if request.method == "POST":
+        # Get the user's name and room code from the form submission
         name = request.form.get("name")
         code = request.form.get("code")
         join = request.form.get("join", False)
         create = request.form.get("create", False)
 
+        # If the user did not enter a name, display an error message
         if not name:
             return render_template("chat.html", error="Please enter a name.", code=code, name=name)
 
+        # If the user clicked the "join" button but did not enter a room code, display an error message
         if join != False and not code:
             return render_template("chat.html", error="Please enter a room code.", code=code, name=name)
         
+        # Set the room variable to either the user-entered code or a newly generated code
         room = code
         if create != False:
             room = generate_unique_code(4)
@@ -327,61 +329,89 @@ def chat():
         elif code not in rooms:
             return render_template("chat.html", error="Room does not exist.", code=code, name=name)
         
+        # Store the user's name and room code in the session and redirect to the room page
         session["room"] = room
         session["name"] = name
         return redirect(url_for("room"))
 
+    # If the request method is not POST, render the chat page
     return render_template("chat.html")
 
+# Route for the chat room page
 @myapp_obj.route("/room")
 def room():
+    # Get the room code from the session
     room = session.get("room")
+    # If the room code is not in the session or the user's name is not in the session or the room does not exist, redirect to the chat page
     if room is None or session.get("name") is None or room not in rooms:
         return redirect(url_for("chat"))
-
+    # Render the room page with the room code and messages
     return render_template("room.html", code=room, messages=rooms[room]["messages"])
 
+# Define the SocketIO instance
 socketio = SocketIO(myapp_obj)
 
+# This function is called when a message is received from the client.
 @socketio.on("message")
 def message(data):
+    # Get the room from the user's session data.
     room = session.get("room")
+    # If the room is not in the list of active rooms, ignore the message.
     if room not in rooms:
         return 
     
+    # Create a dictionary with the user's name and message content.
     content = {
         "name": session.get("name"),
         "message": data["data"]
     }
+    # Send the message to all users in the same room.
     send(content, to=room)
+    # Append the message to the list of messages for the room.
     rooms[room]["messages"].append(content)
+    # Print a message to the console indicating who said what.
     print(f"{session.get('name')} said: {data['data']}")
 
+# This function is called when a new client connects to the server.
 @socketio.on("connect")
 def connect(auth):
+    # Get the room and name from the user's session data.
     room = session.get("room")
     name = session.get("name")
+    # If either the room or name are missing, do nothing.
     if not room or not name:
         return
+    # If the room is not in the list of active rooms, leave the room and do nothing.
     if room not in rooms:
         leave_room(room)
         return
     
+    # Join the room and send a message indicating the user has entered.
     join_room(room)
     send({"name": name, "message": "has entered the room"}, to=room)
+    # Increase the number of members in the room.
     rooms[room]["members"] += 1
+    # Print a message to the console indicating who joined which room.
     print(f"{name} joined room {room}")
 
+# This function is called when a client disconnects from the server.
 @socketio.on("disconnect")
 def disconnect():
+    # Get the room and name from the user's session data.
     room = session.get("room")
     name = session.get("name")
+    # Leave the room.
     leave_room(room)
 
+    # If the room is in the list of active rooms, decrease the number of members.
     if room in rooms:
         rooms[room]["members"] -= 1
+        # If there are no more members in the room, delete it from the list of active rooms.
         if rooms[room]["members"] <= 0:
             del rooms[room]
     
+    # Send a message indicating the user has left the room.
     send({"name": name, "message": "has left the room"}, to=room)
+    # Print a message to the console indicating who left which room.
     print(f"{name} has left the room {room}")
+

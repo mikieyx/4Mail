@@ -1,9 +1,11 @@
-{% extends 'chat_base.html' %} 
+{% extends 'chat_base.html' %}  <!-- Extend the chat_base.html template -->
 
-{% block content_chat %}
+{% block content_chat %}  <!-- Define a block named "content_chat" -->
 
-  <form method="post" class="buttons" align="center">
-    <h3> Welcome To 4Mail Chat Room! </h3>
+  <form method="post" class="buttons" align="center">  <!-- Create a form with a POST method and a class of "buttons" and align it to the center -->
+    <h3> Welcome To 4Mail Chat Room! </h3>  <!-- Add a heading to the form -->
+
+    <!-- Create an input field for the user's name -->
     <div>
       <label> Enter Chat Name </label> <br>
       <input
@@ -13,17 +15,24 @@
         value="{{name}}"
       />
     </div>
+
+    <!-- Create an input field for the room's access code -->
     <div class="join">
       <label> Enter Room's Access Code: </label> 
       <input type="text" placeholder="Enter Access Code" name="code" value="{{code}}" />
-      <hr>
-      <button type="submit" name="join">Join Room</button>
+      <hr>  <!-- Add a horizontal line separator -->
+      <button type="submit" name="join">Join Room</button>  <!-- Add a button to join a room -->
     </div>
-    <button type="submit" name="create" class="create-btn">Create a Room</button>
+
+    <button type="submit" name="create" class="create-btn">Create a Room</button>  <!-- Add a button to create a room -->
+
+    <!-- Check if there is an error message and display it if there is -->
     {% if error %}
     <ul>
       <li>{{error}}</li>
     </ul>
     {% endif %}
-  </form>
-{% endblock %}
+
+  </form>  <!-- Close the form -->
+
+{% endblock %}  <!-- End the "content_chat" block --> 
