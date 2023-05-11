@@ -1,88 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Chat App</title>
+{% extends "base.html"%}
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
-      integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
-      crossorigin="anonymous"
-    ></script>
-    <style>
-      .content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .join {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-  }
-  
-  .create-btn {
-    width: 100%;
-  }
-  
-  .message-box {
-    border-color: black;
-    border-width: 2px;
-    border-style: solid;
-    border-radius: 10px;
-    background-color: rgb(248, 203, 203);
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    width: 80vw;
-    align-items: stretch;
-  }
-  
-  .messages {
-    overflow-y: scroll;
-    flex: 1;
-    width: 100%;
-  }
-  
-  .inputs {
-    padding: 10px;
-    display: flex;
-  }
-  
-  h2 {
-    text-align: center;
-  }
-  
-  #message {
-    flex: 1;
-  }
-  
-  .text {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  
-  .muted {
-    font-size: 10px;
-    color: rgb(0, 0, 0);
-  }
-  
-    </style>
-  </head>
-  <body>
-    <div class="content">{% block content %} {% endblock %}</div>
-  </body>
-</html>
+{% block content %}
+
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Chat App</title>
+
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+        integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+        crossorigin="anonymous"
+      ></script>
+      <style>
+        .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .join {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+    
+    .create-btn {
+      width: 100%;
+    }
+    
+    .message-box {
+      border-color: black;
+      border-width: 2px;
+      border-style: solid;
+      border-radius: 10px;
+      background-color: rgb(248, 203, 203);
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      width: 80vw;
+      align-items: stretch;
+    }
+    
+    .messages {
+      overflow-y: scroll;
+      flex: 1;
+      width: 100%;
+    }
+    
+    .inputs {
+      padding: 10px;
+      display: flex;
+    }
+    
+    h2 {
+      text-align: center;
+    }
+    
+    #message {
+      flex: 1;
+    }
+    
+    .text {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    .muted {
+      font-size: 10px;
+      color: rgb(0, 0, 0);
+    }
+    
+      </style>
+    </head>
+    <body>
+      <div class="content">{% block content_chat %} {% endblock %}</div>
+    </body>
+  </html>
+
+{% endblock %}

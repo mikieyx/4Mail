@@ -1,20 +1,27 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Send Email</title>
-  </head>
-  <body>
-    <h1>Send Email</h1>
-    <form action="/send_email" method="post">
-        <label for="sender">Sender:</label>
-        <input type="text" id="sender" name="sender"><br><br>
-        <label for="recipient">Recipient:</label>
-        <input type="text" id="recipient" name="recipient"><br><br>
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject"><br><br>
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="5" cols="50"></textarea><br><br>
-        <input type="submit" value="Send Email">
+{% extends "base.html"%}
+
+{% block content %}
+
+  <html>
+    <head>
+      <title>Send Email</title>
+    </head>
+    <body>
+      <h1 align="center">Send Email</h1>
+      <hr>
+      <form action="/send_email" method="post" align="center">
+          <label for="sender">Sender:</label>
+          <input type="text" id="sender" name="sender"><br><br>
+          <label for="recipient">Recipient:</label>
+          <input type="text" id="recipient" name="recipient"><br><br>
+          <label for="subject">Subject:</label>
+          <input type="text" id="subject" name="subject"><br><br>
+          <hr>
+          <label for="message">Message:</label><br>
+          <textarea id="message" name="message" rows="5" cols="50"></textarea><br><br>
+          <input type="submit" value="Send Email">
       </form>
-  </body>
-</html>
+    </body>
+  </html>
+
+{% endblock %}

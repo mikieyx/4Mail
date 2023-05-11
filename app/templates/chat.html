@@ -1,25 +1,29 @@
-{% extends 'chat_base.html' %} {% block content %}
+{% extends 'chat_base.html' %} 
 
-<form method="post" class="buttons">
-  <h3>Welcome To 4Mail Chat Room!</h3>
-  <div>
-    <label>Name:</label>
-    <input
-      type="text"
-      placeholder="Enter your name!"
-      name="name"
-      value="{{name}}"
-    />
-  </div>
-  <div class="join">
-    <input type="text" placeholder="Enter Access Code" name="code" value="{{code}}" />
-    <button type="submit" name="join">Join a Room</button>
-  </div>
-  <button type="submit" name="create" class="create-btn">Create a Room</button>
-  {% if error %}
-  <ul>
-    <li>{{error}}</li>
-  </ul>
-  {% endif %}
-</form>
+{% block content_chat %}
+
+  <form method="post" class="buttons" align="center">
+    <h3> Welcome To 4Mail Chat Room! </h3>
+    <div>
+      <label> Enter Chat Name </label> <br>
+      <input
+        type="text"
+        placeholder="Enter your name!"
+        name="name"
+        value="{{name}}"
+      />
+    </div>
+    <div class="join">
+      <label> Enter Room's Access Code: </label> 
+      <input type="text" placeholder="Enter Access Code" name="code" value="{{code}}" />
+      <hr>
+      <button type="submit" name="join">Join Room</button>
+    </div>
+    <button type="submit" name="create" class="create-btn">Create a Room</button>
+    {% if error %}
+    <ul>
+      <li>{{error}}</li>
+    </ul>
+    {% endif %}
+  </form>
 {% endblock %}
