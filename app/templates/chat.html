@@ -10,21 +10,23 @@
       <label> Enter Chat Name </label> <br>
       <input
         type="text"
-        placeholder="Enter your name!"
+        placeholder=" Enter Your Name"
         name="name"
         value="{{name}}"
       />
     </div>
 
+    <button type="submit" name="create" class="create-btn">Create a Room</button>  <!-- Add a button to create a room -->
+
+    <label>  Or If You Want To Join a Room: </label> 
+
     <!-- Create an input field for the room's access code -->
     <div class="join">
-      <label> Enter Room's Access Code: </label> 
-      <input type="text" placeholder="Enter Access Code" name="code" value="{{code}}" />
+      <label> Enter Room's Access Code:</label> 
+      <input type="text" placeholder=" Enter Access Code" name="code" value="{{code}}" />
       <hr>  <!-- Add a horizontal line separator -->
       <button type="submit" name="join">Join Room</button>  <!-- Add a button to join a room -->
     </div>
-
-    <button type="submit" name="create" class="create-btn">Create a Room</button>  <!-- Add a button to create a room -->
 
     <!-- Check if there is an error message and display it if there is -->
     {% if error %}
