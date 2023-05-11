@@ -6,7 +6,7 @@
   <body>
     <h1>Inbox</h1>
     {% for email in emails %}
-    <p>From: {{ email.sender }}, Subject: {{ email.sender }}, Message: {{ email.body }}</p>
+    <p>From: {{ email.sender }}, Subject: {{ email.sender }}, Message: {{ email.body }}</p> <a href="/delete/{{ email.id }}" class"btn btn-outline-danger btn-sml">Delete</a><br>
     {% endfor %}
   </body>
 </html>
