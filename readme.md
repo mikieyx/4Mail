@@ -17,11 +17,17 @@ The following are the main features of 4Mail:
 
 - pip install flask
 - pip install Flask-WTF
+- pip install wtforms
 - pip install Flask-Login
 - pip install Werkzeug
+- pip install flask_sqlalchemy
+- pip install flask_migrate
 - pip install SQLAlchemy
 - pip install PyJWT
 - pip install requests
+- pip install flask_bootstrap
+- pip install flask_mail
+- pip install flask_socketio
 
 # How to use
 
