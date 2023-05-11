@@ -89,6 +89,12 @@ def inbox():
     # Render the inbox.html template with the list of emails:
     return render_template('inbox.html', emails=emails)
 
+@myapp_obj.route('/delete/<int:id>')
+def delete(id):
+    email_to_delete = Email.query.get_or_404(id)
+    db.session.delete(email_to_delete)
+    db.session.commit()
+    return redirect('/inbox')
 
 @myapp_obj.route('/logout')
 def logout():
