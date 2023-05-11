@@ -200,12 +200,12 @@ def delete(id):
 @myapp_obj.route('/send_email', methods=['GET', 'POST'])
 def send_email():
     if request.method == 'POST':
-        sender = request.form['sender']
+        
         recipient = request.form['recipient']
         subject = request.form['subject']
         body = request.form['message']
 
-        email = Email(sender=sender, recipient=recipient,
+        email = Email(sender=current_user.email, recipient=recipient,
                       subject=subject, body=body)
         db.session.add(email)
         db.session.commit()
