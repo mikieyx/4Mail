@@ -15,49 +15,47 @@ The following are the main features of 4Mail:
 
 # Installation
 
-Package           Version
------------------ -----------
-alembic           1.10.4
-bidict            0.22.1
-blinker           1.6.2
-certifi           2022.6.15
-cffi              1.15.1
-click             8.1.3
-colorama          0.4.5
-config            0.5.1
-cryptography      40.0.2
-Deprecated        1.2.13
-distlib           0.3.4
-dnspython         2.3.0
-dominate          2.7.0
-email-validator   2.0.0.post2
-filelock          3.7.1
-Flask             2.2.3
-Flask-Bootstrap   3.3.7.1
-Flask-JWT         0.3.2
-Flask-Login       0.6.2
-Flask-Mail        0.9.1
-Flask-Migrate     4.0.4
-Flask-SocketIO    5.3.3
-Flask-SQLAlchemy  3.0.3
-Flask-WTF         1.1.1
-greenlet          2.0.2
-PyJWT             2.4.0
-python-dotenv     1.0.0
-python-engineio   4.4.1
-python-jwt        4.0.0
-python-socketio   5.8.0
-simple-websocket  0.10.0
-six               1.16.0
-SQLAlchemy        2.0.9
-typing_extensions 4.5.0
-virtualenv        20.15.1
-virtualenv-clone  0.5.7
-visitor           0.1.3
-Werkzeug          2.2.3
-wrapt             1.15.0
-wsproto           1.2.0
-WTForms           3.0.1
+- pip install alembic           1.10.4
+- pip install pbidict            0.22.1
+- pip install blinker           1.6.2
+- pip install certifi           2022.6.15
+- pip install cffi              1.15.1
+- pip install click             8.1.3
+- pip install colorama          0.4.5
+- pip install config            0.5.1
+- pip install cryptography      40.0.2
+- pip install Deprecated        1.2.13
+- pip install distlib           0.3.4
+- pip install dnspython         2.3.0
+- pip install dominate          2.7.0
+- pip install email-validator   2.0.0.post2
+- pip install filelock          3.7.1
+- pip install Flask             2.2.3
+- pip install Flask-Bootstrap   3.3.7.1
+- pip install Flask-JWT         0.3.2
+- pip install Flask-Login       0.6.2
+- pip install Flask-Mail        0.9.1
+- pip install Flask-Migrate     4.0.4
+- pip install Flask-SocketIO    5.3.3
+- pip install Flask-SQLAlchemy  3.0.3
+- pip install Flask-WTF         1.1.1
+- pip install greenlet          2.0.2
+- pip install PyJWT             2.4.0
+- pip install python-dotenv     1.0.0
+- pip install python-engineio   4.4.1
+- pip install python-jwt        4.0.0
+- pip install python-socketio   5.8.0
+- pip install simple-websocket  0.10.0
+- pip install six               1.16.0
+- pip install SQLAlchemy        2.0.9
+- pip install typing_extensions 4.5.0
+- pip install virtualenv        20.15.1
+- pip install virtualenv-clone  0.5.7
+- pip install visitor           0.1.3
+- pip install Werkzeug          2.2.3
+- pip install wrapt             1.15.0
+- pip install wsproto           1.2.0
+- pip install WTForms           3.0.1
 
 # How to use
 
