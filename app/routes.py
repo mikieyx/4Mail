@@ -1,4 +1,4 @@
-from .forms import LoginForm, RegistrationForm, CheckPasswordForm, ResetPasswordRequestForm, ResetPasswordForm, ChatForm
+from .forms import LoginForm, RegistrationForm, CheckPasswordForm, ResetPasswordRequestForm, ResetPasswordForm, ChatForm, PasswordResetInAccountForm
 from app import myapp_obj, db, mail
 from flask import render_template, redirect, flash, request, url_for
 from flask import Flask, render_template, request, session, redirect, url_for
@@ -193,6 +193,28 @@ def reset_password(token):
 
     # Render the reset password page:
     return render_template('reset_password.html', form=form)
+
+# This route handles the user resetting password:
+
+
+@myapp_obj.route('/password_reset_in_account', methods=['GET', 'POST'])
+def password_reset_in_account():
+    form = PasswordResetInAccountForm()
+    
+    user = User.query.filter_by(email=form.email.data).first()
+
+    if not User: return redirect(url_for('login'))
+
+    if form.validate_on_submit():
+        user.set_password(form.password.data)
+        db.session.commit()
+
+        flash('Congratulations! Your password has already reset!')
+        flash('Now you can login to your account through your new password!')
+
+        return redirect(url_for('home'))
+    
+    return render_template('password_reset_in_account.html', form=form)
 
 # This route handles the user account deletion:
 
