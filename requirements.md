@@ -15,7 +15,7 @@
 
 ## Non Functional Requirements
 
-1. Web app runs on chrome
+1. Web app runs on Google Chrome or Microsoft Edge
 2. Each web page loads within 5 seconds
 
 ## Use Cases
