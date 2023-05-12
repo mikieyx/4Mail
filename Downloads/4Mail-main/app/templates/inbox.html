@@ -1,0 +1,21 @@
+{% extends "base.html"%}
+
+{% block content %}
+
+<html>
+  <head>
+    <title>Inbox</title>
+  </head>
+  <body>
+    <h1 align="center">Inbox</h1>
+    <br>
+    <br>
+    <!-- For loop that outputs the sender, subject, and email-->
+    <!-- A button is added in the end to delete email -->
+    {% for email in emails %}
+    <p align="center">From: {{ email.sender }}, Subject: {{ email.subject }}, Message: {{ email.body }} <a href="/delete_email/{{ email.id }}" class"btn btn-outline-danger btn-sml">Delete</a></p><br>
+    {% endfor %}
+  </body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+<!-- Extends the base.html file of the Bootstrap library -->
+{% extends 'bootstrap/base.html' %}
+
+<!-- Block defines the title of the page which will be filled later in a child template -->
+{% block title %}{% endblock %}
+
+<!-- Block defines stylesheets that the page's using -->
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/css/main.css">
+{% endblock %}
+
+<!-- Block defines any scripts that the page's using -->
+{% block scripts %}
+  {{ super() }}
+{% endblock %}
+
+<!-- Block defines the navigation bar of the page (logos, a list of links, collapse button) -->
+{% block navbar %}
+  <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+    <a class="navbar-brand" href="{{ url_for('home') }}">E-Mail Support</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <!-- If the user doesn't log in, renders just this links -->
+        {% if current_user.is_anonymous %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+          </li>
+        {% else %} <!-- If the user logged in, renders all the below links -->
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('todo') }}">Todo List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('news') }}">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('send_email') }}">Send E-Mail</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('inbox') }}">Inbox</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('chat') }}">Join Chat Room</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/delete/{{current_user.id}}">Delete Account</a>
+          </li>
+        {% endif %}
+        
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+{% endblock %}
+
+<!-- Block defines the main content of the page -->
+{% block content %}
+  <!-- Block defines the block which will be filled in later in 1 child template that extends base.html like home.html -->
+  {% block app_content %}{% endblock %}
+{% endblock %}
