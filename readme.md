@@ -16,7 +16,7 @@ The following are the main features of 4Mail:
 # Installation
 
 - pip install alembic           1.10.4
-- pip install pbidict            0.22.1
+- pip install pbidict           0.22.1
 - pip install blinker           1.6.2
 - pip install certifi           2022.6.15
 - pip install cffi              1.15.1
