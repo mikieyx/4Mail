@@ -121,7 +121,7 @@ The following are the main features of 4Mail:
 - To log out, click on the "Log Out" button in your account/your profile in the corner of the webpage.
 - The system will log you out and redirect you to the login page or 4Mail's homepage.
 
-7. Send a chat message:
+7. Send A Chat Message:
 
 - Navigate to the 4Mail website.
 - Log in to your account.
@@ -131,7 +131,7 @@ The following are the main features of 4Mail:
 - Click on the "send" button.
 - The system will send that message to everyone in the chat room.
 
-8. Receive a chat message:
+8. Receive A Chat Message:
 
 - Navigate to the 4Mail website.
 - Log in to your account.
@@ -140,7 +140,15 @@ The following are the main features of 4Mail:
 - Wait for a new chat message to appear in the chat window.
 - Once a new message appears, you can reply other people's message.
 
-9. Delete Account:
+9. Leave The Chat Room:
+
+- Navigate to the 4Mail website.
+- Log in to your account.
+- Enter their name and click "Join Chat Room" button.
+- Go to the chat section of your account.
+- Click "Leave Chat" to leave the room chat
+
+10. Delete Account:
 
 - Navigate to the 4Mail website.
 - Log in to your account.
