@@ -89,6 +89,15 @@ def inbox():
     # Render the inbox.html template with the list of emails:
     return render_template('inbox.html', emails=emails)
 
+@myapp_obj.route('/delete_email/<int:id>')
+def delete_email(id):
+    #This obtains the email that is being targeted using the id
+    email_to_delete = Email.query.get_or_404(id)
+    #deletes the targeted email and committing to the database
+    db.session.delete(email_to_delete)
+    db.session.commit()
+    #redirects back to the inbox after deleting
+    return redirect('/inbox')
 
 @myapp_obj.route('/logout')
 def logout():
@@ -194,12 +203,12 @@ def delete(id):
 @myapp_obj.route('/send_email', methods=['GET', 'POST'])
 def send_email():
     if request.method == 'POST':
-        sender = request.form['sender']
+        
         recipient = request.form['recipient']
         subject = request.form['subject']
         body = request.form['message']
 
-        email = Email(sender=sender, recipient=recipient,
+        email = Email(sender=current_user.email, recipient=recipient,
                       subject=subject, body=body)
         db.session.add(email)
         db.session.commit()
