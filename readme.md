@@ -9,8 +9,8 @@ The following are the main features of 4Mail:
 3. Account Creation: Users can easily create a new account on the 4Mail website by filling in a registration form with a username, email address, and password. [Cedric]
 4. Email Sending: Users can send emails to one or multiple recipients by composing a message, selecting recipients by email address, and clicking the "send" button. [Cedric]
 5. Account Login/Logout: Users can securely log in to their 4Mail account by entering their username and password on the login page. Also, users can easily log out of their 4Mail account by clicking on the "Log Out" button in their profile/account page, which will securely log them out and redirect them to the login page or homepage. [Alex]
-6. Send Chat: Users can send chat messages to other 4Mail users by composing a message, selecting recipients by username, and clicking the "send" button, with recipients receiving notifications of new chat messages. [Van]
-7. Receive Chat: Users can receive chat messages from other 4Mail users by viewing incoming messages in their chat inbox. When a user receives a new chat message, they will receive a notification to alert them to the new message. [Van]
+6. Send Chat: Users can send chat messages to other 4Mail users by create a chat room and create a message, and clicking the "send" button. [Van]
+7. Receive Chat: Users can receive chat messages from other 4Mail users by viewing incoming messages in their chat room. [Van]
 8. Account Deletion: Users can choose to delete their 4Mail account by clicking on the "delete account" button in their account settings page and confirming the deletion, which will remove all associated data and log them out. [Alex]
 
 # Installation
@@ -45,6 +45,7 @@ The following are the main features of 4Mail:
 - pip install python-engineio   4.4.1
 - pip install python-jwt        4.0.0
 - pip install python-socketio   5.8.0
+- pip install stocket           
 - pip install simple-websocket  0.10.0
 - pip install six               1.16.0
 - pip install SQLAlchemy        2.0.9
@@ -116,20 +117,20 @@ The following are the main features of 4Mail:
 
 - Navigate to the 4Mail website.
 - Log in to your account.
-- Click on the "chat" button.
+- Click on the "Join Chat Room" button.
+- Enter their name and click "Create A Room"
 - Enter a message in the text box.
-- Select one or more recipients by inputting their usernames.
 - Click on the "send" button.
-- The system will check the validity of the username(s) and send the message.
-- The recipients will receive a notification that they have received a new chat message.
-- The recipients can then log in to their accounts and click on the "chat" button to see and reply to the message(s).
+- The system will send that message to everyone in the chat room.
 
 7. Receive a chat message:
 
-- Log in to your 4Mail account.
+- Navigate to the 4Mail website.
+- Log in to your account.
+- Enter their name and click "Join Chat Room" button.
 - Go to the chat section of your account.
 - Wait for a new chat message to appear in the chat window.
-- Once a new message appears, click on the chat message to open and read it.
+- Once a new message appears, you can reply other people's message.
 
 8. Delete Account:
 
