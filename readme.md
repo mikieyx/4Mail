@@ -4,17 +4,19 @@
 
 The following are the main features of 4Mail:
 
-1. To-Do List: Users can create and manage their to-do list on the 4Mail website, adding tasks with details, due dates, and notes, and marking them as completed when finished. [Michael]
+1. To-Do List: Users can create and manage their to-do list on the 4Mail website, adding tasks with details, due dates, and notes, and deleting them as completed when finished. [Michael]
 2. News Articles API: Users can access external news articles through the 4Mail website, with the system gathering and organizing articles in a user-friendly format. [Michael]
 3. Account Creation: Users can easily create a new account on the 4Mail website by filling in a registration form with a username, email address, password, and confirming the password. [Cedric]
 4. Email Sending: Users can send emails to a recipient by composing a message, writing a subject, selecting a recipient by email address, and clicking the "send" button. [Cedric]
 5. Email Deletion: Users can delete their emails in the inbox page of their accounts by clicking the "Delete" Button in their inboxes. [Cedric]
-6. Account Login/Logout: Users can securely log in to their 4Mail account by entering their username and password on the login page. Also, users can easily log out of their 4Mail account by clicking on the "Log Out" button in their profile/account page, which will securely log them out and redirect them to the login page or homepage. [Anh]
+6. Account Login/Logout: Users can securely log in to their 4Mail account by entering their username and password on the login page. Also, users can easily log out of their 4Mail account by clicking on the "Log Out" button in their account page, which will securely log them out and redirect them to the login page. [Anh]
 7. Send Chat in Chat Room: Users can send chat messages to other 4Mail users by create a chat room and create a message, and clicking the "send" button. [Van]
 8. Receive Chat in Chat Room: Users can receive chat messages from other 4Mail users by viewing incoming messages in their chat room. [Van]
 9. Leave the Chat Room: Users can leave the specified chat room by clicking the "leave" button in the chat room [Van]
 10. Account Deletion: Users can choose to delete their 4Mail account by clicking on the "delete account" button in their account settings page and confirming the deletion, which will remove all associated data and log them out. [Anh]
-11. Password Rest: Users can request password reset whenever they forget their passwords by receiving the reset password link in email to login to their 4Mail accounts by clicking the "Reset via Email" button in Login page of 4Mail. [Anh]
+11. Password Reset (Via User's Email): Users can request password reset whenever they forget their passwords by receiving the reset password link in email to login to their 4Mail accounts by clicking the "Reset via Email" button in Login page of 4Mail. [Anh]
+12. Password Reset (In User's Account): Users can reset their password whenever they want by clicking the section "Password Reset" in the navbar of 4Mail website in their accounts. [Anh]
+
 
 # Installation
 
@@ -165,7 +167,15 @@ The following are the main features of 4Mail:
 - Click "Reset via Email" button, then the system will redirect you to "reset_password_request" webpage.
 - Type your email in the form, then click "password reset request" button.
 - Then the system will send you the password reset email.
-- In that email, clicking the link to set new password.
+- In that email, clicking the link, then setting new password and confirming new password.
+- After doing some validation, the system saves your new password into the database.
+- Now you can use the new password to access your account.
+
+12. Password Reset (Whenever users want to change their passwords in their accounts):
+
+- Navigate to the 4Mail's login website, and login to your recent account.
+- Click "Password Reset" button in the navbar, then the system will redirect you to "password_reset_in_account" webpage.
+- Type your email, new password, and confirmed password in the form, then click "submit" button.
 - After doing some validation, the system saves your new password into the database.
 - Now you can use the new password to access your account.
 
