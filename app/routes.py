@@ -71,7 +71,8 @@ def register():
             db.session.add(user)
             db.session.commit()
             # Flash a success message and redirect to the login page:
-            flash(f'Congratulations, {form.username.data} is an 4Mail user now!')
+            flash(
+                f'Congratulations, {form.username.data} is an 4Mail user now!')
             return redirect(url_for('login'))
         else:
             # If 1 user with the same username already exists, flash an error message and redirect to the login page:
@@ -89,15 +90,17 @@ def inbox():
     # Render the inbox.html template with the list of emails:
     return render_template('inbox.html', emails=emails)
 
+
 @myapp_obj.route('/delete_email/<int:id>')
 def delete_email(id):
-    #This obtains the email that is being targeted using the id
+    # This obtains the email that is being targeted using the id
     email_to_delete = Email.query.get_or_404(id)
-    #deletes the targeted email and committing to the database
+    # deletes the targeted email and committing to the database
     db.session.delete(email_to_delete)
     db.session.commit()
-    #redirects back to the inbox after deleting
+    # redirects back to the inbox after deleting
     return redirect('/inbox')
+
 
 @myapp_obj.route('/logout')
 def logout():
@@ -106,30 +109,35 @@ def logout():
     return redirect(url_for('login'))
 
 # Function sends 1 email with 1 password reset link to the user:
+
+
 def send_reset_email(user):
     # Generate a reset password token for the user:
     token = user.get_reset_password_token()
 
     # Construct the message object with the recipient email, sender email, and subject:
-    msg = Message('Password Reset Request', sender='nguyenhoaianhhsgs@gmail.com', recipients=[user.email])
-    
+    msg = Message('Password Reset Request',
+                  sender='nguyenhoaianhhsgs@gmail.com', recipients=[user.email])
+
     # Set the email body with the password reset link and 1 message:
     msg.body = f'''To reset your password, visit the following link:
 {url_for('reset_password', token=token, _external=True)}
 
 If you did not make this request then simply ignore this email and no changes will be made.
 '''
-    
+
     # Send the email to the user:
     mail.send(msg)
 
 # This route handles the password reset request form:
+
+
 @myapp_obj.route('/reset_password_request', methods=['GET', 'POST'])
 def reset_password_request():
     # If the user is already logged in (authenticated), redirect the user to the home page:
     if current_user.is_authenticated:
         return redirect(url_for('home'))
-        
+
     # Create an instance of the reset password request form:
     form = ResetPasswordRequestForm()
 
@@ -139,29 +147,33 @@ def reset_password_request():
         user = User.query.filter_by(email=form.email.data).first()
 
         # If the user exists, send the reset password email:
-        if user: send_reset_email(user)
+        if user:
+            send_reset_email(user)
 
         # Flash a message to the user to check their email for password reset instructions:
         flash('In order to see the instructions to reset your password, check your email!')
 
         # Redirect the user to the login page:
         return redirect(url_for('login'))
-    
+
     # Render the reset password request page:
     return render_template('reset_password_request.html', title='Reset Password', form=form)
 
 # This route handles the reset password form:
+
+
 @myapp_obj.route('/reset_password/<token>', methods=['GET', 'POST'])
 def reset_password(token):
     # If the user is already logged in (authenticated), redirect them to the home page:
     if current_user.is_authenticated:
         return redirect(url_for('home'))
-    
+
     # Verifies the reset password token and get the user from database:
     user = User.verify_reset_password_token(token)
 
-    # If the user doesn't exist, redirect to the home page: 
-    if not User: return redirect(url_for('home'))
+    # If the user doesn't exist, redirect to the home page:
+    if not User:
+        return redirect(url_for('home'))
 
     # Creates 1 instance of the reset password form:
     form = ResetPasswordForm()
@@ -178,11 +190,13 @@ def reset_password(token):
 
         # Redirect the user to the login page:
         return redirect(url_for('login'))
-    
+
     # Render the reset password page:
     return render_template('reset_password.html', form=form)
 
 # This route handles the user account deletion:
+
+
 @myapp_obj.route('/delete/<int:id>')
 def delete(id):
     # attempt to get the user by provided id, and if it doesn't exist -> return 404 error
@@ -203,22 +217,21 @@ def delete(id):
 @myapp_obj.route('/send_email', methods=['GET', 'POST'])
 def send_email():
     if request.method == 'POST':
-        #creates the input forms for the email
+        # creates the input forms for the email
         recipient = request.form['recipient']
         subject = request.form['subject']
         body = request.form['message']
-        #creating the email object that is going to be inputted to the database
+        # creating the email object that is going to be inputted to the database
         email = Email(sender=current_user.email, recipient=recipient,
                       subject=subject, body=body)
-        #add email object to the database
+        # add email object to the database
         db.session.add(email)
         db.session.commit()
-        
-        #return email sent
+
+        # return email sent
         return render_template('sent.html')
 
     return render_template('Email.html')
-
 
 
 # Todo page needs to gather all the tasks that were created by the current user
@@ -246,6 +259,8 @@ def add_task():
 
 # The route to delete the task. After deleting, we redirect to the todo page to
 # reflect the updated todo list
+
+
 @myapp_obj.route('/todo/<int:task_id>', methods=['POST'])
 def deleteTask(task_id):
     task = Task.query.get(task_id)
@@ -287,7 +302,7 @@ def news():
     articles = []
     counter = 0
     while (len(articles) < 4):
-        if data["data"][counter]["image"] is not None:
+        if counter < len(data["data"]) and data["data"][counter]["image"] is not None:
             author = data["data"][counter]["author"]
             title = data["data"][counter]["title"]
             img = data["data"][counter]["image"]
@@ -299,22 +314,27 @@ def news():
     # After getting the articles, I pass in the list of articles to the html file
     return render_template('news.html', articles=articles)
 
+
 # A dictionary to store the rooms and their members and messages
 rooms = {}
 
 # A function to generate a unique room code of given length
+
+
 def generate_unique_code(length):
     while True:
         code = ""
         # Generate a random code using uppercase letters
         for _ in range(length):
-            code += random.choice(ascii_uppercase)        
+            code += random.choice(ascii_uppercase)
         # If the code is not already in use as a room code, return it
         if code not in rooms:
-            break   
+            break
     return code
 
 # Route for the chat page
+
+
 @myapp_obj.route("/chat", methods=["POST", "GET"])
 def chat():
     if request.method == "POST":
@@ -331,7 +351,7 @@ def chat():
         # If the user clicked the "join" button but did not enter a room code, display an error message
         if join != False and not code:
             return render_template("chat.html", error="Please enter a room code.", code=code, name=name)
-        
+
         # Set the room variable to either the user-entered code or a newly generated code
         room = code
         if create != False:
@@ -339,7 +359,7 @@ def chat():
             rooms[room] = {"members": 0, "messages": []}
         elif code not in rooms:
             return render_template("chat.html", error="Room does not exist.", code=code, name=name)
-        
+
         # Store the user's name and room code in the session and redirect to the room page
         session["room"] = room
         session["name"] = name
@@ -349,6 +369,8 @@ def chat():
     return render_template("chat.html")
 
 # Route for the chat room page
+
+
 @myapp_obj.route("/room")
 def room():
     # Get the room code from the session
@@ -359,18 +381,21 @@ def room():
     # Render the room page with the room code and messages
     return render_template("room.html", code=room, messages=rooms[room]["messages"])
 
+
 # Define the SocketIO instance
 socketio = SocketIO(myapp_obj)
 
 # This function is called when a message is received from the client.
+
+
 @socketio.on("message")
 def message(data):
     # Get the room from the user's session data.
     room = session.get("room")
     # If the room is not in the list of active rooms, ignore the message.
     if room not in rooms:
-        return 
-    
+        return
+
     # Create a dictionary with the user's name and message content.
     content = {
         "name": session.get("name"),
@@ -384,6 +409,8 @@ def message(data):
     print(f"{session.get('name')} said: {data['data']}")
 
 # This function is called when a new client connects to the server.
+
+
 @socketio.on("connect")
 def connect(auth):
     # Get the room and name from the user's session data.
@@ -396,7 +423,7 @@ def connect(auth):
     if room not in rooms:
         leave_room(room)
         return
-    
+
     # Join the room and send a message indicating the user has entered.
     join_room(room)
     send({"name": name, "message": "has entered the room"}, to=room)
@@ -406,6 +433,8 @@ def connect(auth):
     print(f"{name} joined room {room}")
 
 # This function is called when a client disconnects from the server.
+
+
 @socketio.on("disconnect")
 def disconnect():
     # Get the room and name from the user's session data.
@@ -420,9 +449,8 @@ def disconnect():
         # If there are no more members in the room, delete it from the list of active rooms.
         if rooms[room]["members"] <= 0:
             del rooms[room]
-    
+
     # Send a message indicating the user has left the room.
     send({"name": name, "message": "has left the room"}, to=room)
     # Print a message to the console indicating who left which room.
     print(f"{name} has left the room {room}")
-
