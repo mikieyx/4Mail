@@ -203,17 +203,19 @@ def delete(id):
 @myapp_obj.route('/send_email', methods=['GET', 'POST'])
 def send_email():
     if request.method == 'POST':
-        
+        #creates the input forms for the email
         recipient = request.form['recipient']
         subject = request.form['subject']
         body = request.form['message']
-
+        #creating the email object that is going to be inputted to the database
         email = Email(sender=current_user.email, recipient=recipient,
                       subject=subject, body=body)
+        #add email object to the database
         db.session.add(email)
         db.session.commit()
-
-        return 'Email sent!'
+        
+        #return email sent
+        return render_template('sent.html')
 
     return render_template('Email.html')
 
