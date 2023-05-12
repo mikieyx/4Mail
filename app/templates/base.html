@@ -8,7 +8,6 @@
 {% block styles %}
   {{ super() }}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="../static/css/main.css">
 {% endblock %}
 
 <!-- Block defines any scripts that the page's using -->
@@ -19,7 +18,7 @@
 <!-- Block defines the navigation bar of the page (logos, a list of links, collapse button) -->
 {% block navbar %}
   <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
-    <a class="navbar-brand" href="{{ url_for('home') }}"> 4Mail HOMEPAGE </a>
+    <a class="navbar-brand" href="{{ url_for('home') }}"> 4Mail Home </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,32 +28,32 @@
         <!-- If the user doesn't log in, renders just this links -->
         {% if current_user.is_anonymous %}
           <li class="nav-item">
-            <a class="navbar-brand" href="{{ url_for('login') }}">LOGIN</a>
+            <a class="navbar-brand" href="{{ url_for('login') }}">Login</a>
           </li>
           <li class="nav-item">
-            <a class="navbar-brand" href="{{ url_for('register') }}">REGISTER</a>
+            <a class="navbar-brand" href="{{ url_for('register') }}">Register</a>
           </li>
         {% else %} <!-- If the user logged in, renders all the below links -->
           <li class="nav-item">
-            <a class="navbar-brand" href="{{ url_for('todo') }}">TODO LIST</a>
+            <a class="navbar-brand" href="{{ url_for('todo') }}">Todo List</a>
           </li>
           <li class="nav-item">
-            <a class="navbar-brand" href="{{ url_for('news') }}">NEWS</a>
+            <a class="navbar-brand" href="{{ url_for('news') }}">News</a>
           </li>
           <li class="nav-item">
-            <a class="navbar-brand" href="{{ url_for('send_email') }}">SEND E-MAIL</a>
+            <a class="navbar-brand" href="{{ url_for('send_email') }}">Send E-Mail</a>
           </li>
         <li class="nav-item">
-            <a class="navbar-brand" href="{{ url_for('inbox') }}">INBOX</a>
+            <a class="navbar-brand" href="{{ url_for('inbox') }}">Inbox</a>
           </li>
           <li class="nav-item">
-            <a class="navbar-brand" href="{{ url_for('chat') }}">CHAT ROOM</a>
+            <a class="navbar-brand" href="{{ url_for('chat') }}">Chat Room</a>
           </li>
           <li class="nav-item">
-            <a class="navbar-brand" href="{{ url_for('logout') }}">LOGOUT</a>
+            <a class="navbar-brand" href="{{ url_for('logout') }}">Logout</a>
           </li>
           <li class="nav-item">
-            <a class="navbar-brand" href="/delete/{{current_user.id}}">DELETE ACCOUNT</a>
+            <a class="navbar-brand" href="/delete/{{current_user.id}}">Delete Account</a>
           </li>
         {% endif %}
         
