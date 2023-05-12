@@ -51,7 +51,7 @@ First meeting on 4/7/22, all subsequent meetings are on Tuesday at 9PM
 
 - Michael, Cedric, Van and Alex are all present
 - Michael, Cedric, Alex are finished with their requirements
-- Van will work with Cedric to finish the last requirement starring important emails
+- Van will work with Cedric to finish the last requirement
 - Michael will work on virutal environment and test cases
 - Cedric and Van will on using bootstrap to make their sections more nicer
 - Alex will work on commenting and documenting the code
@@ -61,7 +61,6 @@ First meeting on 4/7/22, all subsequent meetings are on Tuesday at 9PM
 ### 2023-05-11
 
 - Michael, Cedric, Van and Alex are all present
-- Van and Alex has to merge their last requirement branch
 - Comments and bootstrap are done
 - Documentation
 - Alex has agreed to do the demonstration on his laptop
