@@ -1,0 +1,72 @@
+{% extends 'chat_base.html' %}  <!-- extends the 'chat_base.html' template -->
+
+{% block content_chat %}  <!-- defines a block named 'content_chat' -->
+
+  <div class="message-box">  <!-- a container for the chatroom messages -->
+    <h1>Chatroom</h1>  <!-- a header for the chatroom -->
+    <h3>Access Code: {{code}}</h3>  <!-- displays the chatroom access code -->
+    <div class="messages" id="messages"></div>  <!-- a container for the messages -->
+    <div class="inputs">  <!-- a container for the message input and send button -->
+      <input
+        type="text"
+        rows="3"
+        placeholder="Message"
+        name="message"
+        id="message"
+      />
+      <button type="button" name="send" id="send-btn" onClick="sendMessage()">
+        Send
+      </button>
+      <button type="button" name="leave" id="leave-btn" onClick="leave()">
+        Leave Chat
+      </button>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var socketio = io();  // creates a new socket.io instance
+
+    const messages = document.getElementById("messages");  // gets the messages container
+
+    // a function to create a new chat message element
+    const createMessage = (name, msg) => {
+      const content = `
+      <div class="text">
+          <span>
+              <strong>${name}</strong>: ${msg}
+          </span>
+          <span class="muted">
+              ${new Date().toLocaleString()}  <!-- displays the current date/time -->
+          </span>
+      </div>
+      `;
+      messages.innerHTML += content;  // appends the new message element to the messages container
+    };
+
+    // listens for new 'message' events and creates a new chat message element when received
+    socketio.on("message", (data) => {
+      createMessage(data.name, data.message);
+    });
+
+    // sends a new message to the chatroom via socket.io
+    const sendMessage = () => {
+      const message = document.getElementById("message");  // gets the message input element
+      if (message.value == "") return;  // checks if the input is empty
+      socketio.emit("message", { data: message.value });  // emits a 'message' event to the server
+      message.value = "";  // clears the message input
+    };
+
+    // disconnects the socket.io connection and redirects the user to the homepage
+    const leave = () => {
+      socketio.disconnect();
+      window.location.href = "/";
+    };
+  </script>
+
+  {% for msg in messages %}  <!-- a loop to iterate over the chatroom messages -->
+  <script type="text/javascript">
+    createMessage("{{msg.name}}", "{{msg.message}}");  // creates a new chat message element for each message
+  </script>
+  {% endfor %} 
+
+{% endblock %}  <!-- ends the 'content_chat' block -->

@@ -1,0 +1,41 @@
+<!-- This code extends the base HTML file and contains the login form for 4Mail -->
+{% extends "base.html"%}
+
+{% block content %}
+<h1 align="center">Log In - 4Mail</h1>
+
+<!-- Login form -->
+<div class="login-form-group">
+   <form action="" method="POST" novalidate>
+      {{form.hidden_tag()}} 
+         <p align="center"> {{form.username.label}} <br>
+            {{form.username(size=32)}}</p>
+  
+         <p align="center"> {{form.password.label}} <br>
+            {{form.password(size=32)}}</p>
+  
+         <p align="center"> {{form.remember_me.label}} <br>
+            {{form.remember_me()}}</p>
+  
+         <p align="center">{{form.submit()}}</p>
+   </form>
+</div>
+
+<!-- Create account if haven't registered and reset password links -->
+<div class="row">
+   <div class="col-md-4 offset-md-4 col-xs-8 offset-xs-2">
+      <div class="createAccount">
+         <hr>
+         <p align="center"> <strong> New Users? </strong> </p>
+         <a id="registration" href="/register"> <center> Create Account </center> </a>
+      </div>
+
+      <hr>
+
+      <p align="center">
+         Forgot Password?
+         <a href="{{ url_for('reset_password_request') }}">Reset Via Email</a>
+      </p>
+   </div>
+</div>
+{% endblock %}

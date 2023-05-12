@@ -1,0 +1,27 @@
+{% extends 'base.html' %}  <!-- This line extends the base HTML template -->
+{% import 'bootstrap/wtf.html' as wtf %}  <!-- This line imports the Flask-WTF module for use in the form -->
+
+<!-- This block defines the main content of the page -->
+{% block app_content %}
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      {% if current_user.is_anonymous %}  <!-- this block checks if the user is anonymous or not -->
+        <h3>Welcome to 4Mail!</h3>   <!-- if the user is anonymous, display this message -->
+    </div>
+    
+    </div>
+      {% else %}   <!-- if the user is not anonymous, display the following content -->
+        {% with messages = get_flashed_messages() %}   <!-- this block gets any flashed messages that were set in the controller -->
+          {% if messages %}   <!-- if there are any messages, display them -->
+              {% for message in messages %}   <!-- loop through each message and display it -->
+                <p>{{ message }}</p>  
+              {% endfor %}  
+          {% endif %}  
+        {% endwith %}  
+        
+        <h1>Welcome to 4Mail, {{ current_user.username }}!</h1>   <!-- display 1 welcome message to the logged in user -->
+    </div>
+  </div>
+
+      {% endif %}
+{% endblock %}
