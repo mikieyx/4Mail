@@ -86,12 +86,14 @@
 
 - **Summary:** A user who has a 4mail account will send an email to a recipient.
 
+- **Actors:** user, recipient
+
 - **Pre-condition:**
 
-  1. The user has a 4mail account
-  2. The user has internet access
-  3. The user is logged into their account
-  4. The user has one or more recipients in mind
+  1. The user has internet access
+  2. The user has other user recipient in mind
+  3. The user and recipient has a 4mail account
+  4. The user is logged into their account 
 
 - **Trigger:** User clicks on “compose” button
 
@@ -100,13 +102,12 @@
   1. The user selects a recipient by inputting their email addresses
   2. The user writes the subject and then writes the message on the text box
   3. The user clicks on the “send” button
-  4. The system checks the validity of the email address(es)
-  5. The system sends the message to the recipient(s)
-  6. The system shows a message indicating that the message has been sent successfully
+  4. The system sends the message to the recipient
+  5. The system shows a message indicating that the message has been sent successfully and the recipient can see the message in their inbox
 
 - **Alternate Sequence:**
 
-  5. a: The user inputs an invalid recipient email address so the system shows an error message saying that the email address does not exist.
+  5. a: The user inputs a non-existent recipient email address so the system will not show the intended recipient the email.
 
 - **Primary Post-conditions:** The user is able to send a message to the recipient / The user is not able to send a message and has to re-enter a valid recipient email address
 
