@@ -51,3 +51,9 @@ class ChatForm(FlaskForm):
     recipient = StringField('Recipient', validators=[DataRequired()])
     message = TextAreaField('Message', validators=[DataRequired(), Length(min=1, max=500)])
     submit = SubmitField('Send')
+    
+class PasswordResetInAccountForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('New Password', validators=[DataRequired()])
+    password2 = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Submit')
