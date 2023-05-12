@@ -67,7 +67,7 @@ The following are the main features of 4Mail:
 
 # Usage
 
-1.Add a task to the todo list:
+1. Add a task to the todo list:
 
 - Navigate to the 4Mail website.
 - Log in to your account.
