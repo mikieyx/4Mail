@@ -8,10 +8,13 @@ The following are the main features of 4Mail:
 2. News Articles API: Users can access external news articles through the 4Mail website, with the system gathering and organizing articles in a user-friendly format. [Michael]
 3. Account Creation: Users can easily create a new account on the 4Mail website by filling in a registration form with a username, email address, password, and confirming the password. [Cedric]
 4. Email Sending: Users can send emails to a recipient by composing a message, writing a subject, selecting a recipient by email address, and clicking the "send" button. [Cedric]
-5. Account Login/Logout: Users can securely log in to their 4Mail account by entering their username and password on the login page. Also, users can easily log out of their 4Mail account by clicking on the "Log Out" button in their profile/account page, which will securely log them out and redirect them to the login page or homepage. [Alex]
-6. Send Chat: Users can send chat messages to other 4Mail users by create a chat room and create a message, and clicking the "send" button. [Van]
-7. Receive Chat: Users can receive chat messages from other 4Mail users by viewing incoming messages in their chat room. [Van]
-8. Account Deletion: Users can choose to delete their 4Mail account by clicking on the "delete account" button in their account settings page and confirming the deletion, which will remove all associated data and log them out. [Alex]
+5. Email Deletion: Users can delete their emails in the inbox page of their accounts by clicking the "Delete" Button in their inboxes. [Cedric]
+6. Account Login/Logout: Users can securely log in to their 4Mail account by entering their username and password on the login page. Also, users can easily log out of their 4Mail account by clicking on the "Log Out" button in their profile/account page, which will securely log them out and redirect them to the login page or homepage. [Anh]
+7. Send Chat in Chat Room: Users can send chat messages to other 4Mail users by create a chat room and create a message, and clicking the "send" button. [Van]
+8. Receive Chat in Chat Room: Users can receive chat messages from other 4Mail users by viewing incoming messages in their chat room. [Van]
+9. Leave the Chat Room: Users can leave the specified chat room by clicking the "leave" button in the chat room [Van]
+10. Account Deletion: Users can choose to delete their 4Mail account by clicking on the "delete account" button in their account settings page and confirming the deletion, which will remove all associated data and log them out. [Anh]
+11. Password Rest: Users can request password reset whenever they forget their passwords by receiving the reset password link in email to login to their 4Mail accounts by clicking the "Reset via Email" button in Login page of 4Mail. [Anh]
 
 # Installation
 
