@@ -88,10 +88,9 @@ The following are the main features of 4Mail:
 
 3. Create an account (register):
 
-- Navigate to the 4Mail website.
-- Click on the "create account" button.
+- Navigate to the 4Mail's register webpage.
 - Fill in the registration form that asks for a username, email address, password, and confirm password.
-- Submit the form.
+- Click on the "create account" button to submit the form
 - The system will check the validity of the input and create the account.
 - The system will redirect you to the login page.
 
@@ -106,7 +105,8 @@ The following are the main features of 4Mail:
 - Click on the "send" button.
 - The system will send the message and give you an option to write another email or go to the homepage.
 
-5. Delete an email
+5. Delete an email:
+
 - Navigate to the 4Mail website.
 - Log in to your account.
 - Click on the "Inbox" button located on the nav bar.
@@ -118,7 +118,7 @@ The following are the main features of 4Mail:
 - Navigate to the 4Mail website.
 - To log in, click on the "Log In" button and enter your login credentials (username and password).
 - If successful, the system will redirect you to your account page.
-- To log out, click on the "Log Out" button in your account/your profile in the corner of the webpage.
+- To log out, click on the "Log Out" button in your account (in the navbar of the webpage).
 - The system will log you out and redirect you to the login page or 4Mail's homepage.
 
 7. Send A Chat Message:
@@ -152,10 +152,19 @@ The following are the main features of 4Mail:
 
 - Navigate to the 4Mail website.
 - Log in to your account.
-- Click on the "account settings" page.
-- Click on the "delete account" button.
-- The system will prompt you to confirm the deletion of your account.
-- If you confirm the deletion, the system will delete all data associated with your account and log you out.
+- Click on the "delete account" button in your account (in the navbar of the webpage).
+- The system will delete all data associated with your account and log you out right after clicking the button.
+- After that you will be in the homepage of 4Mail but for unregistered users.
+
+11. Password Reset (When users forget their password to login):
+
+- Navigate to the 4Mail's login website.
+- Click "Reset via Email" button, then the system will redirect you to "reset_password_request" webpage.
+- Type your email in the form, then click "password reset request" button.
+- Then the system will send you the password reset email.
+- In that email, clicking the link to set new password.
+- After doing some validation, the system saves your new password into the database.
+- Now you can use the new password to access your account.
 
 # Contributors
 
