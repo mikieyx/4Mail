@@ -57,3 +57,14 @@ First meeting on 4/7/22, all subsequent meetings are on Tuesday at 9PM
 - Alex will work on commenting and documenting the code
 - Everyone will start working on the presentation
 - We will meet at 9:15 PM on Thursday 5/11/23
+
+### 2023-05-11
+
+- Michael, Cedric, Van and Alex are all present
+- Van and Alex has to merge their last requirement branch
+- Comments and bootstrap are done
+- Documentation
+- Alex has agreed to do the demonstration on his laptop
+- Alex did a run through of the live demo
+- We will meet at 10 AM to go over the demonstration and the whole application
+- Michael will adjust the navbar to make it look better

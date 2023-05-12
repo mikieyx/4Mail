@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row">
+
+<div class="row m-3">
     <div class="col-md-12">
         <h1 class="text-center">Task Manager</h1>
     </div>
 </div>
-<div class="row">
+<div class="row m-3">
     <div class="col-md-6">
         <form method="POST" action="{{ url_for('add_task') }}">
             <div class="form-group">
@@ -21,7 +22,7 @@
         </form>
     </div>
 </div>
-<div class="row">
+<div class="row m-3">
     <div class="col-md-12">
         <table class="table">
             <thead>
