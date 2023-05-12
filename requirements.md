@@ -175,10 +175,10 @@
 
 - **Alternate Sequence:**
 
-  8. If the user encounters an error while typing the message, such as exceeding the character limit, the user will be prompted with an error message.
-  9. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.prompted with an error message.
+   8. If the user encounters an error while typing the message, such as exceeding the character limit, the user will be   prompted with an error message.
+   9. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered      successfully.prompted with an error message.
 
-#8. Receive a Chat from Someone
+#8. Receive a Chat from Chat Room
 - **Summary:** Users can receive a chat message from a chat room after joining it.
 
 - **Actors:**  The user, other users in the chat room (and 4Mail)
@@ -200,13 +200,6 @@
 
 - **Alternate Sequence:**
 
- 9. If the user encounters an error while joining the chat room or sending the reply message, such as exceeding the character limit, the user will be prompted with an error message.
- 10.If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.
+  9. If the user encounters an error while joining the chat room or sending the reply message, such as exceeding the character limit, the user will be prompted with an error message.
+  10. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.
 
-- **Post-conditions:** The sender receives the reply message and can respond to it.
-
-- **Alternate Sequence:**
-
-  1. If the sender enters an incorrect username or email address, the chat message will not be received by the intended recipient.
-  2. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.
-  3. If the user encounters an error while typing the reply message, such as exceeding the character limit, the user will be prompted with an error message.
