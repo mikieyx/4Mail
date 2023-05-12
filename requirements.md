@@ -92,18 +92,18 @@
 
 - **Primary Sequence:**
 
-  1. The user enters a message on the text box
-  2. The user selects one or more recipients by inputting their email addresses
-  3. The user clicks on the “send” button
-  4. The system checks the validity of the email address(es)
-  5. The system sends the message to the recipient(s)
-  6. The system shows a message indicating that the message has been sent successfully
+  1. The user selects a recipient by inputting their email addresses
+  2. The user writes the subject and then writes the message on the text box
+  4. The user clicks on the “send” button
+  5. The system checks the validity of the email address(es)
+  6. The system sends the message to the recipient(s)
+  7. The system shows a message indicating that the message has been sent successfully
 
 - **Alternate Sequence:**
 
   5. a: The user inputs an invalid recipient email address so the system shows an error message saying that the email address does not exist.
 
-- **Primary Post-conditions:** The user is able to send a message to the recipient(s) / The user is not able to send a message and has to re-enter a valid recipient email address
+- **Primary Post-conditions:** The user is able to send a message to the recipient / The user is not able to send a message and has to re-enter a valid recipient email address
 
 #5. Log In/ Log Out
 - **Summary:** The users go to the website to use their registered accounts to log in their account to do operations inside their accounts like sending, receiving emails, and crossing or inserting to-do works. After that, they can log out of their account on 4Mail.
