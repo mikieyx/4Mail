@@ -9,25 +9,54 @@ The following are the main features of 4Mail:
 3. Account Creation: Users can easily create a new account on the 4Mail website by filling in a registration form with a username, email address, and password. [Cedric]
 4. Email Sending: Users can send emails to one or multiple recipients by composing a message, selecting recipients by email address, and clicking the "send" button. [Cedric]
 5. Account Login/Logout: Users can securely log in to their 4Mail account by entering their username and password on the login page. Also, users can easily log out of their 4Mail account by clicking on the "Log Out" button in their profile/account page, which will securely log them out and redirect them to the login page or homepage. [Alex]
-6. Send Chat: Users can send chat messages to other 4Mail users by composing a message, selecting recipients by username, and clicking the "send" button, with recipients receiving notifications of new chat messages. [Van]
-7. Receive Chat: Users can receive chat messages from other 4Mail users by viewing incoming messages in their chat inbox. When a user receives a new chat message, they will receive a notification to alert them to the new message. [Van]
+6. Send Chat: Users can send chat messages to other 4Mail users by create a chat room and create a message, and clicking the "send" button. [Van]
+7. Receive Chat: Users can receive chat messages from other 4Mail users by viewing incoming messages in their chat room. [Van]
 8. Account Deletion: Users can choose to delete their 4Mail account by clicking on the "delete account" button in their account settings page and confirming the deletion, which will remove all associated data and log them out. [Alex]
 
 # Installation
 
-- pip install flask
-- pip install Flask-WTF
-- pip install wtforms
-- pip install Flask-Login
-- pip install Werkzeug
-- pip install flask_sqlalchemy
-- pip install flask_migrate
-- pip install SQLAlchemy
-- pip install PyJWT
-- pip install requests
-- pip install flask_bootstrap
-- pip install flask_mail
-- pip install flask_socketio
+- pip install alembic           1.10.4
+- pip install pbidict           0.22.1
+- pip install blinker           1.6.2
+- pip install certifi           2022.6.15
+- pip install cffi              1.15.1
+- pip install click             8.1.3
+- pip install colorama          0.4.5
+- pip install config            0.5.1
+- pip install cryptography      40.0.2
+- pip install Deprecated        1.2.13
+- pip install distlib           0.3.4
+- pip install dnspython         2.3.0
+- pip install dominate          2.7.0
+- pip install email-validator   2.0.0.post2
+- pip install filelock          3.7.1
+- pip install Flask             2.2.3
+- pip install Flask-Bootstrap   3.3.7.1
+- pip install Flask-JWT         0.3.2
+- pip install Flask-Login       0.6.2
+- pip install Flask-Mail        0.9.1
+- pip install Flask-Migrate     4.0.4
+- pip install Flask-SocketIO    5.3.3
+- pip install Flask-SQLAlchemy  3.0.3
+- pip install Flask-WTF         1.1.1
+- pip install greenlet          2.0.2
+- pip install PyJWT             2.4.0
+- pip install python-dotenv     1.0.0
+- pip install python-engineio   4.4.1
+- pip install python-jwt        4.0.0
+- pip install python-socketio   5.8.0
+- pip install stocket           
+- pip install simple-websocket  0.10.0
+- pip install six               1.16.0
+- pip install SQLAlchemy        2.0.9
+- pip install typing_extensions 4.5.0
+- pip install virtualenv        20.15.1
+- pip install virtualenv-clone  0.5.7
+- pip install visitor           0.1.3
+- pip install Werkzeug          2.2.3
+- pip install wrapt             1.15.0
+- pip install wsproto           1.2.0
+- pip install WTForms           3.0.1
 
 # How to use
 
@@ -39,7 +68,7 @@ The following are the main features of 4Mail:
 
 # Usage
 
-1.Add a task to the todo list:
+1. Add a task to the todo list:
 
 - Navigate to the 4Mail website.
 - Log in to your account.
@@ -88,20 +117,20 @@ The following are the main features of 4Mail:
 
 - Navigate to the 4Mail website.
 - Log in to your account.
-- Click on the "chat" button.
+- Click on the "Join Chat Room" button.
+- Enter their name and click "Create A Room"
 - Enter a message in the text box.
-- Select one or more recipients by inputting their usernames.
 - Click on the "send" button.
-- The system will check the validity of the username(s) and send the message.
-- The recipients will receive a notification that they have received a new chat message.
-- The recipients can then log in to their accounts and click on the "chat" button to see and reply to the message(s).
+- The system will send that message to everyone in the chat room.
 
 7. Receive a chat message:
 
-- Log in to your 4Mail account.
+- Navigate to the 4Mail website.
+- Log in to your account.
+- Enter their name and click "Join Chat Room" button.
 - Go to the chat section of your account.
 - Wait for a new chat message to appear in the chat window.
-- Once a new message appears, click on the chat message to open and read it.
+- Once a new message appears, you can reply other people's message.
 
 8. Delete Account:
 

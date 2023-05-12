@@ -9,9 +9,9 @@
 7. Delete emails [Cedric]
 8. Add a task to the do list [Michael]
 9. Cross something off the todo list [Michael]
-10. Send a chat to someone [Van]
-11. Receive a chat from someone [Van]
-12. Add attached image to send chat [Van]
+10. Send a message to a chat room [Van]
+11. Receive a message from chat room [Van]
+12. Leave the chat room [Van]
 
 ## Non Functional Requirements
 
@@ -154,51 +154,56 @@
   1. Input Wrong Email Address: If the users type the invalid email address, then 4Mail displays the error message like ‘Invalid Email Address, please type other email address!’, and let them type again.
   2. Enter the Password which Doesn’t meet the password requirements of 4 Mail: If the users enter a Password which Doesn’t meet the password requirements of the 4Mail website, it displays the error message like ‘Password DOES not meet Requirements’, then notifies them why their new one is wrong; for example, it likes “Please type 6-8 lowercase letters” when the users input less than 6 lowercase letters.
 
-#7. Send a Chat to Someone
+#7. Send a Message to a Chat Room
 - **Summary:** Users can send a chat message to a recipient who is also registered on 4Mail.
 
-- **Actors:** The users, the recipient (and 4Mail)
+- **Actors:** The users, the chat room members (and 4Mail)
 
-- **Pre-condition:** The users have Internet access, and they already register successfully the accounts for 4Mail.
+- **Pre-condition:** The users have Internet access and have successfully logged in to their account on 4Mail, and they have joined a chat room.
 
 - **Primary Sequence:**
 
   1. The user navigates to the 4Mail website and logs in to their account.
-  2. The user clicks on the chat icon or button, which is usually located in the navigation menu or the top bar of the webpage.
-  3. The chat window opens up, and the user enters the recipient's username or email address in the "To" field.
-  4. The user types the message they want to send in the message field.
+  2. The user clicks on the "Join a Room" button.
+  3. The user enters their name and creates a new chat room or joins an existing one.
+  4. The chat room window opens up, and the user types the message they want to send in the message field.
   5. The user can format the message using text formatting tools such as bold, italic, or underline, and can also attach files or images if necessary.
-  6. The user clicks the send button to send the message to the recipient.
-  7. If successful, the message is sent to the recipient and appears in the chat window.
+  6. The user clicks the send button to send the message to the chat room.
+  7. If successful, the message is sent to the chat room and appears in the chat window.
 
-- **Post-conditions:** The recipient receives the chat message and can respond to it. The chat message is saved in the chat history between the sender and the recipient.
+- **Post-conditions:**  The message is sent to the chat room, and all members in the chat room can see the message and respond to it. 
 
 - **Alternate Sequence:**
 
-  1. If the user enters an incorrect username or email address, the chat message will not be sent to the intended recipient.
-  2. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.
-  3. If the user encounters an error while typing the message, such as exceeding the character limit, the user will be prompted with an error message.
+  8. If the user encounters an error while typing the message, such as exceeding the character limit, the user will be prompted with an error message.
+  9. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.prompted with an error message.
 
 #8. Receive a Chat from Someone
-- **Summary:** Users can receive a chat message from a sender who is also registered on 4Mail.
+- **Summary:** Users can receive a chat message from a chat room after joining it.
 
-- **Actors:**  The user, the sender (and 4Mail)
+- **Actors:**  The user, other users in the chat room (and 4Mail)
 
-- **Pre-condition:** The users have Internet access, and they already register successfully the accounts for 4Mail.
+- **Pre-condition:**  The user has Internet access and has successfully logged in to their 4Mail account. The user has joined the chat room.
 
 - **Primary Sequence:**
 
   1. The user logs in to their 4Mail account.
   2. The user clicks on the chat icon or button, which is usually located in the navigation menu or the top bar.
-  3. The chat window opens up, and the user sees a new message notification from the sender.
-  4. The user clicks on the notification to open the chat message.
-  5. The user reads the message from the sender.
-  6. The user can respond to the message by typing a reply in the message field.
-  7. The user can format the message using text formatting tools such as bold, italic, or underline, and can also attach files or images if necessary.
-  8. The user clicks the send button to send the reply to the sender.
-  9. If successful, the reply is sent to the sender and appears in the chat window.
+  3. The user clicks on the "Join a Room" button.
+  4. The user The user enters their name and selects the chat room they want to join 
+  5. The user clicks on the "Join" button to join existing room.
+  6. The user sees the chat messages from other users in the chat room and responds to them by typing a reply in the message field.
+  7. The user clicks the send button to send the reply to the chat room.
+  8. If successful, the reply is sent to the chat room and appears in the chat window.
+  
+**Post-conditions:** Other users in the chat room receive the reply message and can respond to it. The chat message and reply are saved in the chat history of the chat room.
 
-- **Post-conditions:** The sender receives the reply message and can respond to it. The chat message and reply are saved in the chat history between the sender and the recipient.
+- **Alternate Sequence:**
+
+ 9. If the user encounters an error while joining the chat room or sending the reply message, such as exceeding the character limit, the user will be prompted with an error message.
+ 10.If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.
+
+- **Post-conditions:** The sender receives the reply message and can respond to it.
 
 - **Alternate Sequence:**
 
