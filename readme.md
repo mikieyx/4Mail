@@ -6,8 +6,8 @@ The following are the main features of 4Mail:
 
 1. To-Do List: Users can create and manage their to-do list on the 4Mail website, adding tasks with details, due dates, and notes, and marking them as completed when finished. [Michael]
 2. News Articles API: Users can access external news articles through the 4Mail website, with the system gathering and organizing articles in a user-friendly format. [Michael]
-3. Account Creation: Users can easily create a new account on the 4Mail website by filling in a registration form with a username, email address, and password. [Cedric]
-4. Email Sending: Users can send emails to one or multiple recipients by composing a message, selecting recipients by email address, and clicking the "send" button. [Cedric]
+3. Account Creation: Users can easily create a new account on the 4Mail website by filling in a registration form with a username, email address, password, and confirming the password. [Cedric]
+4. Email Sending: Users can send emails to a recipient by composing a message, writing a subject, selecting a recipient by email address, and clicking the "send" button. [Cedric]
 5. Account Login/Logout: Users can securely log in to their 4Mail account by entering their username and password on the login page. Also, users can easily log out of their 4Mail account by clicking on the "Log Out" button in their profile/account page, which will securely log them out and redirect them to the login page or homepage. [Alex]
 6. Send Chat: Users can send chat messages to other 4Mail users by create a chat room and create a message, and clicking the "send" button. [Van]
 7. Receive Chat: Users can receive chat messages from other 4Mail users by viewing incoming messages in their chat room. [Van]
@@ -90,7 +90,7 @@ The following are the main features of 4Mail:
 
 - Navigate to the 4Mail website.
 - Click on the "create account" button.
-- Fill in the registration form that asks for a username, email address, and password.
+- Fill in the registration form that asks for a username, email address, password, and confirm password.
 - Submit the form.
 - The system will check the validity of the input and create the account.
 - The system will redirect you to the login page.
@@ -99,11 +99,12 @@ The following are the main features of 4Mail:
 
 - Navigate to the 4Mail website.
 - Log in to your account.
+- Click on the "Send Email" button located on the nav bar.
+- Enter a recipient by inputting their email address
+- Write the subject of the email
+- Write your message in the text box.
 - Click on the "send" button.
-- Enter a message in the text box.
-- Select one or more recipients by inputting their email addresses.
-- Click on the "send" button.
-- The system will check the validity of the email address(es) and send the message.
+- The system will send the message and give you an option to write another email or go to the homepage.
 
 5. Log In/Log Out:
 
