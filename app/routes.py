@@ -199,21 +199,35 @@ def reset_password(token):
 
 @myapp_obj.route('/password_reset_in_account', methods=['GET', 'POST'])
 def password_reset_in_account():
+    # Creates 1 instance of the password reset in account form:
     form = PasswordResetInAccountForm()
     
+    # Finds the user by user's email address:
     user = User.query.filter_by(email=form.email.data).first()
 
+    # If the user doesn't exist, redirect to the login page:
     if not User: return redirect(url_for('login'))
 
+    # If the form has been submitted and is valid:
     if form.validate_on_submit():
-        user.set_password(form.password.data)
-        db.session.commit()
+        # If the user exists, Sets the user's new password and Commits this change to the database:
+        if user:
+            user.set_password(form.password.data)
+            db.session.commit()
 
-        flash('Congratulations! Your password has already reset!')
-        flash('Now you can login to your account through your new password!')
+            # Flash 1 message to the user that the user's password has been reset successfully:
+            flash('Congratulations! Your password has already reset!')
+            flash('Now you can login to your account through your new password!')
 
-        return redirect(url_for('home'))
+            # Redirect the user to the home page:
+            return redirect(url_for('home'))
+        # Otherwise, print notification into the system and render the same website
+        # to let user type the correct corresponding email for resetting password: 
+        else:
+            print('The user with this email does not exist!')
+            return render_template('password_reset_in_account.html', form=form)
     
+    # Render the password reset in account page:
     return render_template('password_reset_in_account.html', form=form)
 
 # This route handles the user account deletion:
