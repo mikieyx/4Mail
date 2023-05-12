@@ -1,9 +1,9 @@
 ## Functional Requirements
 
 1. Create an account (register) [Cedric]
-2. Log in/Log out [Alex]
-3. Delete User Account [Alex]
-4. Password reset [Alex]
+2. Log in/Log out [Anh]
+3. Delete User Account [Anh]
+4. Password reset (When the users forget their password to login) [Anh]
 5. Connect to external News Articles API [Michael]
 6. Send an email [Cedric]
 7. Delete emails [Cedric]
@@ -12,6 +12,7 @@
 10. Send a message to a chat room [Van]
 11. Receive a message from chat room [Van]
 12. Leave the chat room [Van]
+13. Extra: Password Reset (When the users want to reset their passwords in their account) [Anh]
 
 ## Non Functional Requirements
 
@@ -123,7 +124,7 @@
   2. The users enter their username and passwords of their account to the website (login page of 4Mail), and then click 'Log In'.
   3. If it is successful in logging in, then the website will redirect the users to the page of their account (maybe their profile or their mail boxes).
   4. Then if the users want to log out, they will navigate to the “Log Out” button to click the “Log Out” button in their account/their profile in the corner of the webpage.
-  5. If it is successful in logging out, 4Mail will log the users out and redirects them to the login page or 4Mail's homepage.
+  5. If it is successful in logging out, the users are logged out and redirected to the login page or 4Mail's homepage.
 
 - **Primary Post-conditions:**
 
@@ -136,9 +137,9 @@
   1. Log In: If the users enter the invalid username or password, then the website automatically displays an error message to notify the users and reminds them to input the correct ones like “Invalid username, please type the correct one!” or “Invalid password, please type the correct one!”.
   2. Log Out: 4Mail automatically logs the user out if the user's session in this web page times out due to inactivity for a long time like 30 minutes or 1 hour.
 
-#6. Password Reset (When the users forget their password)
+#6. Password Reset (When the users forget their password to login)
 
-- **Summary:** When the users forget their password during logging in or just not remember it, they can go to the 4Mail signing in page and then reset their account’s password.
+- **Summary:** When the users forget their password during logging in, they can go to the 4Mail signing in page and then reset their account’s password.
 
 - **Pre-condition:** The users have Internet access, and they already register successfully the accounts for 4Mail.
 
@@ -148,7 +149,7 @@
   2. The users input their email address associated with their account and click the ‘Reset via Email’ button, then 4Mail sends a password reset link to the users’ email.
   3. If it is successful in receiving password reset link email, The users click on the password reset link in their associated email address, then it redirects them to the password reset website of 4Mail.
   4. The users input the new password which meets 4Mail's password requirements like the required numbers of lowercase, uppercase letters, integers, and special characters. Then they click the ‘Confirm’ button to confirm their new passwords.
-  5. If it is successful in checking the new password, 4Mail automatically updates the new password for the users’ account and then redirects them to their account webpage.
+  5. If it is successful in checking the new password, the users' new passwords will be for the users’ account and then they are redirected to their account webpage.
 
 - **Primary Post-conditions:**
 
@@ -182,8 +183,8 @@
 
 - **Alternate Sequence:**
 
-  8.  If the user encounters an error while typing the message, such as exceeding the character limit, the user will be prompted with an error message.
-  9.  If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.prompted with an error message.
+  1.  If the user encounters an error while typing the message, such as exceeding the character limit, the user will be prompted with an error message.
+  2.  If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.prompted with an error message.
 
 #8. Receive a Chat from Chat Room
 
@@ -208,5 +209,5 @@
 
 - **Alternate Sequence:**
 
-  9. If the user encounters an error while joining the chat room or sending the reply message, such as exceeding the character limit, the user will be prompted with an error message.
-  10. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.
+  1. If the user encounters an error while joining the chat room or sending the reply message, such as exceeding the character limit, the user will be prompted with an error message.
+  2. If there is a connection issue or a problem with the 4Mail server, the chat message may not be delivered successfully.
