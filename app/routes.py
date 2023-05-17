@@ -201,12 +201,13 @@ def reset_password(token):
 def password_reset_in_account():
     # Creates 1 instance of the password reset in account form:
     form = PasswordResetInAccountForm()
-    
+
     # Finds the user by user's email address:
     user = User.query.filter_by(email=form.email.data).first()
 
     # If the user doesn't exist, redirect to the login page:
-    if not User: return redirect(url_for('login'))
+    if not User:
+        return redirect(url_for('login'))
 
     # If the form has been submitted and is valid:
     if form.validate_on_submit():
@@ -222,11 +223,11 @@ def password_reset_in_account():
             # Redirect the user to the home page:
             return redirect(url_for('home'))
         # Otherwise, print notification into the system and render the same website
-        # to let user type the correct corresponding email for resetting password: 
+        # to let user type the correct corresponding email for resetting password:
         else:
             print('The user with this email does not exist!')
             return render_template('password_reset_in_account.html', form=form)
-    
+
     # Render the password reset in account page:
     return render_template('password_reset_in_account.html', form=form)
 
@@ -321,7 +322,7 @@ def news():
     # Then I will make the get request to the api
     conn = http.client.HTTPConnection('api.mediastack.com')
     params = urllib.parse.urlencode({
-        'access_key': '3e6930adc8f22818321f218a9aca99ab',
+        'access_key': 'fbd8ffdfa293837779f35e06370a1d1e',
         'countries': "us",
         'sort': 'published_desc',
     })
